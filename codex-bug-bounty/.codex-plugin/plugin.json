@@ -1,0 +1,38 @@
+{
+  "name": "claude-bug-bounty-codex",
+  "version": "3.0.0",
+  "description": "Codex-local packaging of the Claude Bug Bounty workflows, skills, and helper tools.",
+  "author": {
+    "name": "ShuvonSec",
+    "url": "https://github.com/shuvonsec"
+  },
+  "homepage": "https://github.com/shuvonsec/claude-bug-bounty",
+  "repository": "https://github.com/shuvonsec/claude-bug-bounty",
+  "license": "MIT",
+  "keywords": [
+    "bug-bounty",
+    "security",
+    "recon",
+    "reporting",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Bug Bounty Harness",
+    "shortDescription": "Recon, hunting, validation, and reporting workflows for Codex.",
+    "longDescription": "Packages the Claude Bug Bounty repo as a local Codex plugin and adds a bridge skill for the original slash-command workflow.",
+    "developerName": "ShuvonSec",
+    "category": "Security",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/shuvonsec/claude-bug-bounty",
+    "defaultPrompt": [
+      "Run the Claude Bug Bounty /recon-equivalent workflow against target.com.",
+      "Validate this bug bounty finding before I write the report.",
+      "Write a HackerOne report from these exploit notes."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

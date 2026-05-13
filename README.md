@@ -33,6 +33,22 @@ Security auditing skills for the Plamen Web3 security auditing pipeline and bug 
 | `injectable/` | 8 | Protocol-type-specific injectable skills |
 | `niche/` | 8 | Flag-triggered standalone niche agent skills |
 
+### Prompts (`prompts/`)
+
+40 audit pipeline prompt templates across 5 platforms (aptos, evm, shared, solana, sui) — recon, inventory, depth, scanner, verification, and security rules.
+
+### Cross-Tool Skills
+
+| Directory | Count | Source |
+|-----------|-------|--------|
+| `cursor-skills/` | 14 | Cursor bug bounty recon skills |
+| `cursor-skills-cursor/` | 13 | Cursor utility/workflow skills |
+| `codex-skills/` | 6 | Codex platform skills |
+| `codex-bug-bounty/` | ~10 | Codex bug bounty plugin (full plugin) |
+| `deepseek-skills/` | 1 | DeepSeek platform skill |
+| `goal/` | 1 | Goal tracking skill |
+| `audit-prep/` | 1 | Audit preparation skill |
+
 ### Commands (`commands/`)
 
 24 slash commands: hunt, recon, scope, validate, triage, chain, report, ctf-solver, web3-audit, and more.

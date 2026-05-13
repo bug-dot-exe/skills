@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# One-command Strix launcher. Run from YOUR terminal.
+#
+# Usage: strix-bb <handle> [target]
+#   strix-bb overwolf              # --target . (scope from instructions.md)
+#   strix-bb overwolf https://creator.tebex.io   # single target only when explicitly provided
+#
+# Style: Use --target . unless you have a single target scope.
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec "$SCRIPT_DIR/strix-launch-tmux.sh" "${1:?Usage: strix-bb <handle> [target]}" "${STRIX_RUNS_DIR:-$HOME/strix-runs}" "${2:-.}"
