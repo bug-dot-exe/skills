@@ -1,0 +1,10 @@
+grimoire/.obsidian
+marker-groups
+.pi
+.claude/settings.local.json
+.claude/projects/
+MEMORY/
+.superset/*
+**/.venv
+**/.python-version
+**/uv.lock

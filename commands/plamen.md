@@ -1,0 +1,1 @@
+/home/bugdotexe/.plamen/commands/plamen.md

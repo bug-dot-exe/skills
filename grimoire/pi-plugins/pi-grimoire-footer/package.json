@@ -1,0 +1,25 @@
+{
+  "name": "pi-grimoire-footer",
+  "version": "0.1.0",
+  "description": "Grimoire status bar extension for pi coding agent",
+  "type": "module",
+  "files": [
+    "src/**/*.ts",
+    "*.md",
+    "*.json"
+  ],
+  "keywords": [
+    "pi-package",
+    "pi",
+    "coding-agent",
+    "grimoire",
+    "security",
+    "status-bar"
+  ],
+  "license": "MIT",
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  }
+}

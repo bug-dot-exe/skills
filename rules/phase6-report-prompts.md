@@ -1,0 +1,1 @@
+/home/bugdotexe/.plamen/rules/phase6-report-prompts.md

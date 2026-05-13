@@ -1,0 +1,1 @@
+/home/bugdotexe/.plamen/rules/phase3b-rescan-prompt.md

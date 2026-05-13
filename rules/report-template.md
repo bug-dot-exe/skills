@@ -1,0 +1,1 @@
+/home/bugdotexe/.plamen/rules/report-template.md

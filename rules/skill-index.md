@@ -1,0 +1,1 @@
+/home/bugdotexe/.plamen/rules/skill-index.md

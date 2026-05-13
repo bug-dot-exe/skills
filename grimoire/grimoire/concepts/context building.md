@@ -1,0 +1,53 @@
+A lot of my security research time is spent tracking down flows. I start with a point of interest,
+such as an intricate / complex mechansim performing sensitive operations. I review the mechanism and based 
+on my understanding come up with things that could go wrong. I then investigate the different flows that 
+interact with the given mechanism and see if the pre-conditions to my attack scenario can be met. 
+
+There are two areas where an agent might aid me in this process. 
+
+The one with the highest leverage is in identifying the flows that interact with the interesting mechanism.
+
+LSPs are slow (esp. find references) and codebases can be constructed with tons of layers of abstraction. As 
+a result a lot of time can get lost in navigating around, cross referencing, going back and forth, etc. 
+
+The process of looking at control- and dataflow is actually quite straightforward and something that an agent can 
+navigate quite well. Furthermore, an agent can handle abstract tasks like "please point out areas which perform auth checks".
+
+### Progressive Disclosure / Knowledge Graph 
+
+Callgraphs, dataflow graphs, etc are essentially just different relations between abstract components. An interactive 
+graph can be leveraged by an agent to quickly navigate the codebase and identify the code that I want to have a look at w.r.t. any given flow. 
+
+An lsp server exposes much of these relations and is likely sufficient to cover most usecases. 
+
+### Context Building 
+
+The idea of context building is to extend the existing knowledge graph exposed by an lsp with learnings and conclusions from the audit. 
+
+For example, I might find out that a function does a specific check which covers a unique set of edge cases. I want to make a note with 
+that conclusion to be surfaced in future investigations. The idea here is not to have the agent reason about these conclusions, it's just 
+to have it surface these conclusions to me. 
+
+The problem with asking the agent with reasoning or even coming up with conclusions is the phenomenon that continued reasoning diverges 
+and that the ideas/ conclusions are not amenable to back-pressure.
+
+That said, there might be a set of conclusions that are amenable to back-pressure. This is an interesting observation. For example, an 
+agent might notice a certain function produces html code that's potentially vulnerable to xxs injection. This is an hypothesis that's 
+easily testible by producing a small test case. 
+
+### Gadgets
+
+A phenomenon I have observed in my bounty hunting is that I collect a set of what I would call gadgets. 
+
+The term is derived from the way that ROP-gadgets are used in binariy exploitation. Essentially, gadgets are tricks I found that 
+allow me to have the code do something unexpected. Usually on their own these gadgets are benign, they might rise to the level of low 
+severity issues, but often not even that. 
+
+These gadgets are often essential in enabling critical vulnerabilies to be exploitable. 
+
+I currently mostly keep a mental note about these, but it might be interesting to augment my workflow such that an agent indexes 
+my gadgets and suggests them when I'm considering whether an issue can be exploited. 
+
+It might even be useful to have the agent itself produce gadgets, or incorporate a gadget search in its proof of concept development workflow.
+
+A nice thing is that gadgets are generally expressable as unit tests.

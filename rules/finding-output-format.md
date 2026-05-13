@@ -1,0 +1,1 @@
+/home/bugdotexe/.plamen/rules/finding-output-format.md

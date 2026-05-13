@@ -1,0 +1,1 @@
+/home/bugdotexe/.plamen/agents/depth-external.md

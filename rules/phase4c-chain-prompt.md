@@ -1,0 +1,1 @@
+/home/bugdotexe/.plamen/rules/phase4c-chain-prompt.md
