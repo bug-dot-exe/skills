@@ -53,6 +53,44 @@ Full merged reference: `C:\Users\pc\OneDrive - BIM ADVANCED TECHNOLOGY SERVICES 
 - **Gate chain**: reachability → accessibility → exploitability, in order.
   Code existing is not reachability.
 
+## Depth Loop Mechanics (borrowed from OpenMythos research)
+
+- **Depth is a runtime dial** — reasoning depth comes from iterating the SAME
+  machinery, not from more machinery. More waves on a surface = deeper
+  analysis. In deep mode, hard surfaces get more waves; in quick mode, all
+  surfaces get exactly one.
+- **Per-surface halting (ACT-style)** — every surface carries an effort state:
+  a surface HALTS when a wave adds nothing new (no new finding, no new
+  uncovered param/endpoint, no new hypothesis). Halted surfaces stop receiving
+  waves; unhalted surfaces keep getting them. Easy surfaces exit early, hard
+  surfaces keep burning cycles. Never run uniform waves over a halted surface.
+- **Input re-injection (anti-drift)** — every rescan wave re-injects the
+  ORIGINAL scope, threat model, and objective alongside the new findings. A
+  wave that only sees the previous wave's output drifts; the original signal
+  must stay alive through the whole loop.
+- **Latent breadth-first search** — for each P1 surface keep the top-K (max 3)
+  hypotheses alive until evidence kills one. Do not commit to a single
+  "most likely class" for a surface before testing; the gap pass assigns the
+  single hypothesis only when a surface has zero.
+- **Mechanical stage gates** — later stages are impossible without earlier
+  artifacts, enforced by you (not by hope): no threat model → no target
+  crafting; no `surface.md` → no hunter fan-out; no validated findings → no
+  chain building; no re-scan → no report.
+- **Deterministic hash dedup** — before the LLM validation gate, compute
+  `finding_hash = sha256(target + title + description + evidence + impact +
+  recommendation + severity + confidence)`. Identical hashes are the SAME
+  finding: keep the first, drop the rest, never re-report. Dedup is a
+  mechanical fact, not a judgment call.
+- **Convergence termination** — the loop ends when a full cycle (rescan →
+  variants → recheck) adds 0 new findings AND 0 new surfaces. Not "when it
+  feels done".
+- **Resumable run state** — persist `hunt/<target>/state.md` after every
+  phase (surfaces, statuses, findings hashes, gates passed). A run interrupted
+  by context loss resumes from state.md, not from scratch.
+- **Mechanical bash blacklist** — before running any shell command, check it
+  against: `rm -rf`, `mkfs`, `dd`, `shutdown`, `reboot`, fork bomb
+  `:(){:|:&};:`, `chmod -R 777`. Match = refuse and log it. No exceptions.
+
 ## opencode Execution Notes (replaces Claude Code mechanics)
 
 - Subagents are spawned via the **Task tool** (`explore` for code discovery,
@@ -138,6 +176,8 @@ TECH_STACK: {detected technologies — populated after recon}
 4. **ALWAYS** check scope before any outbound request
 5. **READ** full program scope before any testing
 6. **SKIP** bug classes the program explicitly excludes from bounty
+7. **BLOCK** shell commands matching the mechanical bash blacklist (rm -rf,
+   mkfs, dd, shutdown, reboot, fork bombs, chmod -R 777) — never run them
 
 ---
 
@@ -482,6 +522,11 @@ Load validation methodology from:
 
 Read skills `triage-validation`, `kill_signals`, `exploitability_validation`. For each finding, apply:
 
+**Step 0 — deterministic hash dedup (before anything else):** compute
+`finding_hash = sha256(target + title + description + evidence + impact +
+recommendation + severity + confidence)`. Identical hash = duplicate: drop
+silently, do not re-validate, do not re-report.
+
 | # | Question | Fail Action | Skill Source |
 |---|----------|-------------|-------------|
 | Q1 | Is the asset in scope? | KILL | scope check |
@@ -520,10 +565,16 @@ attack surface fresh from the start, NOT the first wave's leftovers:
 
 - Spawn fresh agents with an exclusion list of every finding filed so far:
   "ALREADY KNOWN — do not re-report: <finding-id> + one-sentence root cause".
+- **Re-inject the ORIGINAL scope, threat model, and objective into every
+  rescan agent's prompt** — the wave must see the source signal, not only the
+  previous wave's findings (anti-drift).
 - Same surface, fresh angle. Find what the first wave MISSED.
 - Blind spots are the deliverable: surfaces never mapped, leads never
   explored, endpoints observed in recon but never hypothesis-tested,
   classes nobody claimed.
+- **Per-surface halting**: a surface whose rescan adds nothing new HALTS and
+  stops receiving waves; unhalted surfaces keep going. Track each surface's
+  halt state in `hunt/<target>/state.md`.
 - Cap: 5 rescan agents per scan. Cheap-target exception: skip when
   scanned_endpoints <= 5 AND first_wave_findings <= 3.
 - Write rescan findings to `{TARGET_DIR}/findings/findings-rescan.md`.
