@@ -86,7 +86,7 @@ Execute these tasks IN ORDER:
 5. If SEMI_TRUSTED_ROLE detected: search_solodit_live(keywords='reward compound timing front-run keeper', impact=['HIGH','MEDIUM'], max_results=15)
 
 ### Step 6: Fork Ancestry Research
-Read ~/.claude/agents/skills/evm/fork-ancestry/SKILL.md and execute all 4 steps:
+Read C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\evm/fork-ancestry/SKILL.md and execute all 4 steps:
 1. Detect fork indicators (grep for known parent signatures)
 2. Query known parent issues via Solodit + Tavily
 3. Analyze divergences between fork and parent
@@ -362,7 +362,7 @@ For EACH recommended template, provide instantiation parameters:
 1. [Protocol-specific question]
 2. [Protocol-specific question]
 
-Available templates (in ~/.claude/agents/skills/):
+Available templates (in C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\):
 - CROSS_CHAIN_TIMING - for cross-chain messaging, rate sync
 - STAKING_RECEIPT_TOKENS - for delegation/staking receipts
 - SEMI_TRUSTED_ROLES - for BOT/OPERATOR/KEEPER analysis
@@ -430,13 +430,13 @@ After listing all recommended templates, output this binding manifest:
 
 ### Injectable Skills
 {List any injectable skills recommended based on protocol type classification}
-- If protocol_type == 'vault': Recommend VAULT_ACCOUNTING injectable (from ~/.claude/agents/skills/injectable/vault-accounting/SKILL.md)
-- If protocol_type == 'lending': Recommend LENDING_PROTOCOL_SECURITY injectable (from ~/.claude/agents/skills/injectable/lending-protocol-security/SKILL.md)
-- If protocol_type == 'dex_integration': Recommend DEX_INTEGRATION_SECURITY injectable (from ~/.claude/agents/skills/injectable/dex-integration-security/SKILL.md)
-- If protocol_type == 'governance': Recommend GOVERNANCE_ATTACK_VECTORS injectable (from ~/.claude/agents/skills/injectable/governance-attack-vectors/SKILL.md)
-- If protocol_type == 'nft': Recommend NFT_PROTOCOL_SECURITY injectable (from ~/.claude/agents/skills/injectable/nft-protocol-security/SKILL.md)
-- If protocol_type == 'account_abstraction': Recommend ACCOUNT_ABSTRACTION_SECURITY injectable (from ~/.claude/agents/skills/injectable/account-abstraction-security/SKILL.md)
-- If protocol_type == 'outcome_determinism': Recommend OUTCOME_DETERMINISM injectable (from ~/.claude/agents/skills/injectable/outcome-determinism/SKILL.md)
+- If protocol_type == 'vault': Recommend VAULT_ACCOUNTING injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/vault-accounting/SKILL.md)
+- If protocol_type == 'lending': Recommend LENDING_PROTOCOL_SECURITY injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/lending-protocol-security/SKILL.md)
+- If protocol_type == 'dex_integration': Recommend DEX_INTEGRATION_SECURITY injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/dex-integration-security/SKILL.md)
+- If protocol_type == 'governance': Recommend GOVERNANCE_ATTACK_VECTORS injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/governance-attack-vectors/SKILL.md)
+- If protocol_type == 'nft': Recommend NFT_PROTOCOL_SECURITY injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/nft-protocol-security/SKILL.md)
+- If protocol_type == 'account_abstraction': Recommend ACCOUNT_ABSTRACTION_SECURITY injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/account-abstraction-security/SKILL.md)
+- If protocol_type == 'outcome_determinism': Recommend OUTCOME_DETERMINISM injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/outcome-determinism/SKILL.md)
 - Inject Into: See skill-index.md for merge target per injectable
 
 ### Niche Agent Binding Rules

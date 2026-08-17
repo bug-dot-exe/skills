@@ -60,7 +60,7 @@ User provides a contest URL + ground truth findings file. The skill:
 ### Step 2 — Run Each Auditor
 
 For each auditor to benchmark, spawn a **foreground Agent** with:
-1. The auditor's SKILL.md (read from `~/.claude/skills/{name}/SKILL.md`)
+1. The auditor's SKILL.md (read from `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\{name}/SKILL.md`)
 2. The benchmark contract files as scope
 3. Instruction: "Audit these contracts. Write findings to `/tmp/benchmark-{suite}/results-{auditor}.md` in the standard format."
 
@@ -129,10 +129,10 @@ If the user wants to update `/web3`'s skill selection matrix based on results, s
 
 | Auditor | SKILL.md Path |
 |---------|--------------|
-| contract-auditor | `~/.claude/skills/contract-auditor/SKILL.md` |
-| krait | `~/.claude/skills/krait/.claude/skills/krait/SKILL.md` |
-| kann-solidity-auditor | `~/.claude/skills/kann-solidity-auditor/SKILL.md` |
-| nemesis-auditor | `~/.claude/skills/nemesis-auditor/SKILL.md` |
-| tiny-auditor | `~/.claude/skills/tiny-auditor/SKILL.md` |
-| code-sleuth | `~/.claude/skills/code-sleuth/SKILL.md` |
-| monethic-maia | `~/.claude/skills/monethic-maia/SKILL.md` |
+| contract-auditor | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\contract-auditor/SKILL.md` |
+| krait | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\krait\.claude\skills/krait/SKILL.md` |
+| kann-solidity-auditor | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\kann-solidity-auditor/SKILL.md` |
+| nemesis-auditor | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\nemesis-auditor/SKILL.md` |
+| tiny-auditor | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\tiny-auditor/SKILL.md` |
+| code-sleuth | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\code-sleuth/SKILL.md` |
+| monethic-maia | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\monethic-maia/SKILL.md` |

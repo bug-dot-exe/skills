@@ -71,8 +71,8 @@ The output is a structured report with findings at exact file:line locations, vu
 ```bash
 git clone https://github.com/ZealynxSecurity/krait.git
 mkdir -p ~/.claude/commands ~/.claude/skills
-cp -r krait/.claude/commands/* ~/.claude/commands/
-cp -r krait/.claude/skills/* ~/.claude/skills/
+cp -r krait/.claude/commands/* C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\commands\
+cp -r krait/.claude/skills/* C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\
 ```
 
 Open Claude Code in any Solidity project and run `/krait`.
@@ -81,8 +81,8 @@ Open Claude Code in any Solidity project and run `/krait`.
 
 ```bash
 cd krait && git pull
-cp -r .claude/commands/* ~/.claude/commands/
-cp -r .claude/skills/* ~/.claude/skills/
+cp -r .claude/commands/* C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\commands\
+cp -r .claude/skills/* C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\
 ```
 
 ### Optional: Pattern Search MCP Server

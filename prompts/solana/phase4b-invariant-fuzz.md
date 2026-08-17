@@ -24,7 +24,7 @@ Read ALL of these - each source contributes different invariant types:
 - {SCRATCHPAD}/contract_inventory.md (program paths)
 - {SCRATCHPAD}/constraint_variables.md (parameter bounds, fees, limits - source for value ranges)
 - Source files referenced in the above artifacts
-- ~/.claude/agents/skills/solana/trident-api-reference/SKILL.md (correct API signatures - MUST read before writing any code)
+- C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\solana/trident-api-reference/SKILL.md (correct API signatures - MUST read before writing any code)
 
 ## STEP 0.5: Scope Selection
 
@@ -237,7 +237,7 @@ Return: 'DONE: {N} invariants tested ({categories} categories), {H} handlers, {V
 
 When `trident_available: false`, the invariant fuzz campaign is skipped entirely at this phase.
 Proptest or boundary-value parameterized tests are used instead during Phase 5 verification
-(see `~/.claude/rules/phase5-poc-execution.md` - Non-EVM Fuzz Guidance).
+(see `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\rules\phase5-poc-execution.md` - Non-EVM Fuzz Guidance).
 
 This is NOT a failure - native Solana programs without Anchor IDLs cannot use Trident.
 The Phase 5 proptest fallback provides per-finding fuzz coverage with bounded inputs.

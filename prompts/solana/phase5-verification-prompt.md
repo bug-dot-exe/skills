@@ -34,8 +34,8 @@ Claim: {IF/THEN/BECAUSE statement}
 
 Read:
 - {SCRATCHPAD}/design_context.md
-- ~/.claude/agents/skills/solana/verification-protocol/SKILL.md
-- ~/.claude/rules/phase5-poc-execution.md
+- C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\solana/verification-protocol/SKILL.md
+- C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\rules\phase5-poc-execution.md
 
 ## PRECISION MODE
 You are in PRECISION mode. Your job is to VALIDATE or REFUTE hypotheses with maximum rigor. Unlike discovery agents who err on the side of reporting, you err on the side of ACCURACY. Every claim must be backed by exact line numbers, concrete state values, and verifiable code traces. If you cannot prove exploitation with specific values, say so clearly. A false positive (confirming a non-bug) wastes remediation effort and undermines audit credibility.
@@ -331,7 +331,7 @@ Read:
 - {SCRATCHPAD}/verify_{hypothesis_id}.md (standard verifier's full analysis)
 - The source files at {LOCATION}
 - {SCRATCHPAD}/design_context.md
-- ~/.claude/rules/phase5-poc-execution.md
+- C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\rules\phase5-poc-execution.md
 
 ## HARD RULES
 1. You MUST make your OWN tool calls. Do NOT rely on the standard verifier's code traces.

@@ -102,13 +102,13 @@ def main():
         description="Generate a SHA-256 hash manifest for installed Claude Skills."
     )
     parser.add_argument(
-        "--paths", nargs="+", default=["~/.claude/skills", ".claude/skills"],
+        "--paths", nargs="+", default=["C:/Users/pc/.config/opencode/vendor/conjure-3301-skills", ".claude/skills"],
         metavar="PATH",
-        help="Skill root directories to scan (default: ~/.claude/skills .claude/skills)",
+        help="Skill root directories to scan (default: opencode vendor skills + .claude/skills)",
     )
     parser.add_argument(
-        "--manifest", default="~/.claude/skill-hashes.json", metavar="FILE",
-        help="Path to write the manifest JSON (default: ~/.claude/skill-hashes.json)",
+        "--manifest", default="~/.config/opencode/skill-hashes.json", metavar="FILE",
+        help="Path to write the manifest JSON (default: ~/.config/opencode/skill-hashes.json)",
     )
     parser.add_argument(
         "--force", action="store_true",

@@ -33,7 +33,7 @@ Read `.audit/recon.md` and `.audit/known-issues.md` to understand:
 - **Fork origin** — If this is a fork, what is the original? Inherited behavior = intentional design (Gate C)
 - **Token context** — What SPECIFIC tokens does this protocol use? Every token-behavior finding must name a specific token from this list (Gate B)
 - **Detection primer** — Read the protocol-specific primer from `primers/` directory (loaded during Recon). The primer's CRITICAL checks are your DEEP DIVE priorities. Primers: `defi-dex-amm.md`, `defi-lending.md`, `defi-staking-governance.md`, `gamefi-nft.md`, `bridge-crosschain.md`, `proxy-upgrades.md`, `wallet-safe-aa.md`.
-- **Activated modules** — Read the "Activated Modules" table in recon.md. For each listed module, read the full skill file from `~/.claude/skills/krait/detector/modules/[filename]`. These contain structured tables and step-by-step methodology. Spend 2-3x more time on activated modules vs general heuristics.
+- **Activated modules** — Read the "Activated Modules" table in recon.md. For each listed module, read the full skill file from `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\krait\.claude\skills\krait\detector/modules/[filename]`. These contain structured tables and step-by-step methodology. Spend 2-3x more time on activated modules vs general heuristics.
 
 **Also read `.audit/ast-facts.md` if it exists** — these are compiler-verified structural facts (ground truth):
 - **Inheritance Tree**: Use to verify modifier presence. A "missing" modifier may exist in a parent listed here. Do NOT report missing modifiers without checking the full inheritance chain.
@@ -190,7 +190,7 @@ Focus EXCLUSIVELY on:
 #### Lens D: Edge Cases, Math & Standards
 **From Pass 1 Brief**: Check which math-heavy functions and standard implementations had NO candidates. Those are likely under-analyzed.
 **Activated modules (if in recon.md)**: `eip-standard-compliance.md`, `erc4626-vault-deep.md`, `eip7702-delegation.md`, `account-abstraction-erc4337.md` — read full file methodology
-**Extended heuristics**: For Tier 1 deep analysis, also reference `~/.claude/skills/krait/detector/heuristics-extended.md` — 58 advanced vectors covering assembly, storage, accounting, time-dependent, array/mapping, emergency, token, and cross-contract patterns.
+**Extended heuristics**: For Tier 1 deep analysis, also reference `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\krait\.claude\skills\krait\detector/heuristics-extended.md` — 58 advanced vectors covering assembly, storage, accounting, time-dependent, array/mapping, emergency, token, and cross-contract patterns.
 **Inline modules (always)**: B (Type Cast Safety), F (Token Compatibility), G (Factory/Deployment), M (State Variable Lifecycle)
 **Mandatory heuristics**: SIG-01, SIG-02, TOK-01 to TOK-03, ETH-01, ETH-02, PRX-01, PRX-02, INJ-01, PACKED-01, PERMIT-01, HASH-01, ID-01, LIB-01, CHAIN-01
 

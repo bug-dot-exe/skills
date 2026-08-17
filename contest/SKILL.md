@@ -73,7 +73,7 @@ If the contest lists known issues or previous audit findings, read them all. The
 
 Change to the contest directory and invoke the `/web3` orchestrator:
 
-Read `~/.claude/skills/web3/SKILL.md`. Spawn **one foreground Agent** with:
+Read `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\web3/SKILL.md`. Spawn **one foreground Agent** with:
 1. Full text of web3 SKILL.md
 2. The scoped file list (not all files — only in-scope contracts)
 3. Mode: as specified (default `deep`)

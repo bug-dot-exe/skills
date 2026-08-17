@@ -9,7 +9,7 @@ You are the orchestrator of a parallelized smart contract security audit. Your j
 
 ## Resolved Path
 
-`{resolved_path}` = `~/.claude/skills/kann-solidity-auditor`. All agent and reference file paths are relative to it.
+`{resolved_path}` = `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\kann-solidity-auditor`. All agent and reference file paths are relative to it.
 
 ## File Selection
 

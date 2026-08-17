@@ -20,7 +20,7 @@ A Claude skill that writes the accurate prompts for any AI tool. Zero tokens or 
 
 ```bash
 mkdir -p ~/.claude/skills
-git clone https://github.com/nidhinjs/prompt-master.git ~/.claude/skills/prompt-master
+git clone https://github.com/nidhinjs/prompt-master.git C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\prompt-master
 ```
 
 ## 🔥 The Problem This Solves

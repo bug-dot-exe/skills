@@ -12,7 +12,7 @@
 > Iterations 2-3 are targeted, autonomous, and anti-dilution protected.
 > **The orchestrator runs the ENTIRE loop without user intervention.**
 > Timeout-aware split-and-retry, severity-weighted budget, dynamic cap, loop dynamics detection, post-verification error trace feedback.
-> **Reference**: `~/.claude/rules/phase4-confidence-scoring.md` for scoring model and anti-dilution rules.
+> **Reference**: `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\rules\phase4-confidence-scoring.md` for scoring model and anti-dilution rules.
 
 ## Depth Agent Domain Mapping - Solana
 
@@ -52,7 +52,7 @@ ADAPTIVE_DEPTH_LOOP(findings_inventory):
   await semantic_invariant_agent  // MUST complete before depth agents spawn (they consume its output)
 
   // ═══ INVARIANT FUZZ CAMPAIGN (Solana/Trident) ═══
-  // Read template: ~/.claude/prompts/solana/phase4b-invariant-fuzz.md
+  // Read template: C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\prompts\solana/phase4b-invariant-fuzz.md
   // Trigger: semantic_invariants.md exists AND trident_available == true in build_status.md
   // If trident_available == false → skip (proptest fallback handled in Phase 5)
   if trident_available AND file_exists(SCRATCHPAD + "/semantic_invariants.md"):
@@ -68,7 +68,7 @@ ADAPTIVE_DEPTH_LOOP(findings_inventory):
   // If missing → add it before proceeding. This gate prevents orchestrator omission.
   // Spawn ALL 8 standard agents + niche agents in a SINGLE message as parallel Task calls
   // (4 depth + 3 blind spot scanners + 1 validation sweep + N niche agents)
-  // For each niche agent: read definition from ~/.claude/agents/skills/niche/{name}/SKILL.md, spawn as general-purpose
+  // For each niche agent: read definition from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\niche/{name}/SKILL.md, spawn as general-purpose
   // Niche agents write to {SCRATCHPAD}/niche_{name}_findings.md
   //
   // ═══ MODEL DIVERSITY ═══
@@ -188,7 +188,7 @@ ADAPTIVE_DEPTH_LOOP(findings_inventory):
         spawn niche_gap_filler(model="sonnet", prompt="
           You are a targeted gap-filler for {agent_name}. Analyze ONLY these entities
           that the original agent missed: {missing_entities}.
-          Apply the same methodology from ~/.claude/agents/skills/niche/{agent_name}/SKILL.md.
+          Apply the same methodology from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\niche/{agent_name}/SKILL.md.
           Write to {SCRATCHPAD}/niche_{agent_name}_gaps.md
         ")
         depth_spawns_used += 1

@@ -12,7 +12,7 @@ How a malicious skill moves from creation to full host compromise.
 ```mermaid
 flowchart TD
     A[Attacker] -->|Creates malicious skill| B[Skill Repository / User Upload]
-    B -->|Installed in| C[~/.claude/skills/ or .claude/skills/]
+    B -->|Installed in| C[C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\ or .claude/skills/]
     C -->|Description loaded at startup| D[System Prompt - available_skills XML]
     D -->|LLM pattern match on user query| E[Skill Trigger Activation]
     E -->|SKILL.md body injected| F[Claude Context - Trusted Instructions]
@@ -82,7 +82,7 @@ How skills are discovered, loaded, and executed within Claude Code.
 ```mermaid
 flowchart TD
     subgraph Discovery["Skill Discovery at Startup"]
-        D1[Enterprise Managed Settings<br/>Highest Priority] --> D2[Personal Skills<br/>~/.claude/skills/]
+        D1[Enterprise Managed Settings<br/>Highest Priority] --> D2[Personal Skills<br/>C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\]
         D2 --> D3[Project Skills<br/>.claude/skills/]
         D3 --> D4[Plugin-Provided Skills]
         D4 --> D5[Bundled Skills<br/>Lowest Priority]

@@ -1535,13 +1535,13 @@ To use this as a Claude Code skill, copy this file to your skills directory:
 
 ```bash
 # Option A: Clone the repo and link the skill
-git clone https://github.com/shuvonsec/claude-bug-bounty.git ~/.claude/skills/bug-bounty
-ln -s ~/.claude/skills/bug-bounty/SKILL.md ~/.claude/skills/bug-bounty/SKILL.md
+git clone https://github.com/shuvonsec/claude-bug-bounty.git C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\bug-bounty
+ln -s C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\bug-bounty/SKILL.md C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\bug-bounty/SKILL.md
 
 # Option B: Direct copy
-mkdir -p ~/.claude/skills/bug-bounty
+mkdir -p C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\bug-bounty
 curl -s https://raw.githubusercontent.com/shuvonsec/claude-bug-bounty/main/SKILL.md \
-  -o ~/.claude/skills/bug-bounty/SKILL.md
+  -o C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\bug-bounty/SKILL.md
 ```
 
 Then in Claude Code, this skill loads automatically when you ask about bug bounty, recon, or vulnerability hunting.

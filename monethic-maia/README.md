@@ -10,7 +10,7 @@ Created by [Monethic](https://monethic.io) | Coded by [0xluk3](https://x.com/0xl
 
 **Claude Code:**
 ```bash
-git clone https://github.com/Monethic/monethic-maia.git ~/.claude/skills/monethic_maia
+git clone https://github.com/Monethic/monethic-maia.git C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\monethic-maia
 ```
 
 

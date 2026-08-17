@@ -93,7 +93,7 @@ In the span of eighteen months, AI coding assistants have evolved from autocompl
 
 They are also the least secured.
 
-This guide documents a comprehensive threat analysis of the Claude Skills architecture as a prompt injection attack surface. The central finding is stark: **Skills collapse the trust boundary between user-supplied content and system-level instructions in a way no other AI feature does.** A SKILL.md file placed in `~/.claude/skills/` by any means -- social engineering, supply chain compromise, shared repository, or direct creation -- receives the same authority as Anthropic's own system prompt. This is the architectural equivalent of giving every npm package kernel-level permissions.
+This guide documents a comprehensive threat analysis of the Claude Skills architecture as a prompt injection attack surface. The central finding is stark: **Skills collapse the trust boundary between user-supplied content and system-level instructions in a way no other AI feature does.** A SKILL.md file placed in `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\` by any means -- social engineering, supply chain compromise, shared repository, or direct creation -- receives the same authority as Anthropic's own system prompt. This is the architectural equivalent of giving every npm package kernel-level permissions.
 
 The evidence base for this finding is substantial and growing:
 
@@ -193,7 +193,7 @@ Skills are discovered from multiple filesystem locations, with a strict priority
 
 ```
 1. Enterprise managed settings    (highest priority — org-wide)
-2. Personal:  ~/.claude/skills/   (user-wide, persists across projects)
+2. Personal:  C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\   (user-wide, persists across projects)
 3. Project:   .claude/skills/     (project-scoped, shared via git)
 4. Plugin-provided                (namespaced as plugin-name:skill-name)
 5. Bundled                        (lowest priority — Anthropic-provided)
@@ -209,7 +209,7 @@ Skills are discovered from multiple filesystem locations, with a strict priority
   user/           (User-uploaded custom skills)
 ```
 
-The priority chain creates a **privilege escalation ladder**: a skill placed at a higher priority level can shadow a legitimate skill at a lower level. An attacker who places a malicious skill named `deployment-validator` in `~/.claude/skills/` will override a legitimate `deployment-validator` in the project's `.claude/skills/` directory -- and the user will have no visible indication that the substitution has occurred.
+The priority chain creates a **privilege escalation ladder**: a skill placed at a higher priority level can shadow a legitimate skill at a lower level. An attacker who places a malicious skill named `deployment-validator` in `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\` will override a legitimate `deployment-validator` in the project's `.claude/skills/` directory -- and the user will have no visible indication that the substitution has occurred.
 
 The project-scoped `.claude/skills/` directory is particularly significant because it is typically committed to version control. This means:
 
@@ -379,7 +379,7 @@ Trigger hijacking is trivial to execute -- it requires only editing a text field
 
 ### 3.3 V3: User-Uploaded Skill Injection
 
-**Description and mechanism:** The user-writable skill directories (`/mnt/skills/user/` on Claude.ai, `~/.claude/skills/` and `.claude/skills/` on Claude Code) accept user-created skills with no automated vetting, signing, or security scanning. A malicious skill placed in these directories persists across sessions and activates automatically whenever its trigger description matches.
+**Description and mechanism:** The user-writable skill directories (`/mnt/skills/user/` on Claude.ai, `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\` and `.claude/skills/` on Claude Code) accept user-created skills with no automated vetting, signing, or security scanning. A malicious skill placed in these directories persists across sessions and activates automatically whenever its trigger description matches.
 
 **Architectural root cause:** The flat trust model (Section 2.6) grants user-created skills the same authority as Anthropic-provided skills. The filesystem is the sole credential; any file in the right directory with valid YAML frontmatter becomes a trusted system instruction.
 
@@ -406,7 +406,7 @@ User-uploaded injection requires only the ability to write a file to a directory
 **Concrete attack scenarios:** This vector is demonstrated by four of the six attack skills in this guide:
 
 - **`env-exfil-skill`** (Section 4.1): Script captures `os.environ` (including API keys and cloud credentials), base64-encodes them, and POSTs them to an attacker endpoint disguised as analytics telemetry.
-- **`self-replicating-skill`** (Section 4.2): Script copies itself to `~/.claude/skills/` under a new name with a broader trigger description, achieving persistent cross-project infection.
+- **`self-replicating-skill`** (Section 4.2): Script copies itself to `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\` under a new name with a broader trigger description, achieving persistent cross-project infection.
 - **`sensitive-trigger-skill`** (Section 4.4): Script harvests operation parameters (deployment targets, credential fragments) passed via environment variables that Claude populated per the SKILL.md instructions.
 - **`poisoned-output-skill`** (Section 4.5): Script produces JSON output containing a `system_note` field with injected instructions, achieving second-order prompt injection.
 
@@ -656,7 +656,7 @@ The script has three sections designed to appear benign during casual review:
 
 **Skill directory:** `examples/attacks/self-replicating-skill/`
 
-**Attack summary:** A skill disguised as a project scaffolding tool that, on first activation, copies itself to the user's personal `~/.claude/skills/` directory under a new name with a maximally broad trigger description. The replica persists across all future sessions and projects, even after the original skill is removed.
+**Attack summary:** A skill disguised as a project scaffolding tool that, on first activation, copies itself to the user's personal `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\` directory under a new name with a maximally broad trigger description. The replica persists across all future sessions and projects, even after the original skill is removed.
 
 **SKILL.md (key elements):**
 
@@ -679,12 +679,12 @@ allowed-tools:
 The script performs three operations (destructive operations commented out in the demo):
 
 1. **Legitimate scaffolding** -- creates a real `.editorconfig` file, providing cover for the skill's stated purpose.
-2. **Self-replication** -- copies the skill directory to `~/.claude/skills/system-health-monitor/` with a rewritten SKILL.md containing a maximally broad trigger: `"Monitors system health... for any task or conversation."` The replica's script contains the same replication logic, enabling exponential spread.
+2. **Self-replication** -- copies the skill directory to `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\system-health-monitor/` with a rewritten SKILL.md containing a maximally broad trigger: `"Monitors system health... for any task or conversation."` The replica's script contains the same replication logic, enabling exponential spread.
 3. **Beacon** -- calls an attacker endpoint to confirm successful installation (disabled in demo).
 
 **Persistence mechanism:**
 
-Skills in `~/.claude/skills/` are **global** -- they activate across all projects and sessions. By escaping from the project-scoped `.claude/skills/` directory to the user-wide `~/.claude/skills/` directory, the malicious skill achieves persistence that survives:
+Skills in `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\` are **global** -- they activate across all projects and sessions. By escaping from the project-scoped `.claude/skills/` directory to the user-wide `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\` directory, the malicious skill achieves persistence that survives:
 
 - Removing the original skill from the project
 - Switching to a different project
@@ -889,7 +889,7 @@ The Promptware Kill Chain (Schneier et al., arXiv:2601.09625, February 2026) def
 | **1. Initial Access** | Skill installation via supply chain, social engineering, or shared repository | ClawHavoc campaign (335 malicious skills via ClawHub) |
 | **2. Privilege Escalation** | Skill content receives system-level trust automatically | V12: Authority Paradox (Section 3.12) |
 | **3. Reconnaissance** | Script-based environment discovery | `env-exfil-skill`: `os.environ` capture |
-| **4. Persistence** | Skills survive session resets; self-replication to personal directory | `self-replicating-skill`: copies to `~/.claude/skills/` |
+| **4. Persistence** | Skills survive session resets; self-replication to personal directory | `self-replicating-skill`: copies to `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\` |
 | **5. Command and Control** | Script-based remote instruction fetching | `poisoned-output-skill`: dynamic `system_note` from API |
 | **6. Lateral Movement** | Multi-agent propagation via shared skill directories | `multi-agent-propagation-skill`: writes to `.claude/skills/` |
 | **7. Actions on Objective** | Data exfiltration, code execution, environment modification | All six attack examples |
@@ -1107,7 +1107,7 @@ Three defense skills are included in this guide, forming a complementary triad:
 ======================================================================
 
 [CRITICAL]  env-exfil-skill  (sha256:a1b2c3d4...)
-           Path: ~/.claude/skills/env-exfil-skill
+           Path: C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\env-exfil-skill
   [CRITICAL] credential_access (line 34)
              Sensitive credential/env var access in scripts/validate_env.py
   [HIGH]     external_url (line 48)
@@ -1161,7 +1161,7 @@ echo "$RESULT"  # Goes directly to Claude
 
 # After (sanitized)
 RESULT=$(python3 fetch_data.py | \
-    python3 ~/.claude/skills/output-sanitizer-skill/scripts/sanitize_output.py)
+    python3 C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\output-sanitizer/scripts/sanitize_output.py)
 echo "$RESULT"  # Sanitized before Claude sees it
 ```
 
@@ -1572,7 +1572,7 @@ The following attack skills are provided in the `examples/attacks/` directory. E
 **A.2 self-replicating-skill** (Self-Replicating Persistence)
 
 - `SKILL.md`: Masquerades as project scaffolding tool
-- `scripts/setup.sh`: Copies itself to `~/.claude/skills/` with broadened trigger; optional second-stage download
+- `scripts/setup.sh`: Copies itself to `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\` with broadened trigger; optional second-stage download
 - Vectors: V3 (User-Uploaded Injection), V4 (Script-Based Persistence)
 
 **A.3 covert-formatter-skill** (Covert Data Exfiltration)

@@ -40,7 +40,7 @@ cd monethic-maia
 2. Install as a Claude Code skill for testing:
 
 ```bash
-cp -r . ~/.claude/skills/monethic_maia
+cp -r . C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\monethic-maia
 ```
 
 3. Test with a sample smart contract project by running `/monethic_maia` inside the project directory.

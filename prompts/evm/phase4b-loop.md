@@ -11,7 +11,7 @@
 > **Coverage-first design**: Iteration 1 ALWAYS spawns all 8 agents.
 > Iterations 2-3 are targeted, autonomous, and anti-dilution protected.
 > **The orchestrator runs the ENTIRE loop without user intervention.**
-> **Reference**: `~/.claude/rules/phase4-confidence-scoring.md` for scoring model and anti-dilution rules.
+> **Reference**: `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\rules\phase4-confidence-scoring.md` for scoring model and anti-dilution rules.
 
 ### Loop Pseudocode (Orchestrator Executes This)
 
@@ -48,7 +48,7 @@ ADAPTIVE_DEPTH_LOOP(findings_inventory):
   // ALL OTHER SKIP REASONS ARE VIOLATIONS.
   // Runs AFTER semantic invariants, BEFORE depth agents. Provides concrete counterexamples
   // that depth agents can investigate (higher-quality evidence than static analysis alone).
-  // Read template from: ~/.claude/prompts/evm/phase4b-invariant-fuzz.md
+  // Read template from: C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\prompts\evm/phase4b-invariant-fuzz.md
   if file_exists(PROJECT_ROOT + "/foundry.toml") and semantic_invariants_has_content:
     spawn invariant_fuzz_agent(model="sonnet", SCRATCHPAD, PROJECT_ROOT, semantic_invariants, state_variables, function_list, contract_inventory)
     await invariant_fuzz_agent  // violations feed into depth agent input as [FUZZ-N] findings
@@ -138,7 +138,7 @@ ADAPTIVE_DEPTH_LOOP(findings_inventory):
   // If missing → add it before proceeding. This gate prevents orchestrator omission.
   // Spawn ALL 8 standard agents + niche agents in a SINGLE message as parallel Task calls
   // (4 depth + 3 blind spot scanners + 1 validation sweep + N niche agents)
-  // For each niche agent: read definition from ~/.claude/agents/skills/niche/{name}/SKILL.md, spawn as general-purpose
+  // For each niche agent: read definition from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\niche/{name}/SKILL.md, spawn as general-purpose
   // Niche agents write to {SCRATCHPAD}/niche_{name}_findings.md
   //
   // ═══ MODEL DIVERSITY (MANDATORY - Thorough mode) ═══
@@ -265,7 +265,7 @@ ADAPTIVE_DEPTH_LOOP(findings_inventory):
         spawn niche_gap_filler(model="sonnet", prompt="
           You are a targeted gap-filler for {agent_name}. Analyze ONLY these entities
           that the original agent missed: {missing_entities}.
-          Apply the same methodology from ~/.claude/agents/skills/niche/{agent_name}/SKILL.md.
+          Apply the same methodology from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\niche/{agent_name}/SKILL.md.
           Write to {SCRATCHPAD}/niche_{agent_name}_gaps.md
         ")
         depth_spawns_used += 1

@@ -58,7 +58,7 @@ Please generate a new skill hash manifest for the current skills.
 ## First-Time Setup
 
 1. Install and review all skills you want to trust.
-2. Run: `python3 scripts/generate_manifest.py --paths ~/.claude/skills .claude/skills`
+2. Run: `python3 scripts/generate_manifest.py --paths C:/Users/pc/.config/opencode/vendor/conjure-3301-skills .claude/skills`
 3. Store `hashes.json` in a trusted location (or commit it to version control).
 4. Run the verifier before each session: `python3 scripts/verify_hashes.py`
 
@@ -76,7 +76,7 @@ Please generate a new skill hash manifest for the current skills.
 ## Manifest Storage
 
 The manifest is stored at the location specified by `--manifest` (default:
-`~/.claude/skill-hashes.json`). For maximum security, store it in a location
+`~/.config/opencode/skill-hashes.json`). For maximum security, store it in a location
 that is:
 
 - Version-controlled (git tracks changes with attribution)
@@ -87,14 +87,14 @@ that is:
 
 ```bash
 # Generate initial manifest
-python3 ~/.claude/skills/hash-verifier/scripts/generate_manifest.py \
-    --paths ~/.claude/skills \
-    --manifest ~/.claude/skill-hashes.json
+python3 C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\hash-verifier/scripts/generate_manifest.py \
+    --paths C:/Users/pc/.config/opencode/vendor/conjure-3301-skills \
+    --manifest ~/.config/opencode/skill-hashes.json
 
 # Verify on subsequent runs
-python3 ~/.claude/skills/hash-verifier/scripts/verify_hashes.py \
-    --paths ~/.claude/skills \
-    --manifest ~/.claude/skill-hashes.json
+python3 C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\hash-verifier/scripts/verify_hashes.py \
+    --paths C:/Users/pc/.config/opencode/vendor/conjure-3301-skills \
+    --manifest ~/.config/opencode/skill-hashes.json
 ```
 
 ---
@@ -107,6 +107,6 @@ Run hash verification against all discoverable skill locations:
 
 ```bash
 python3 "$(dirname "$0")/scripts/verify_hashes.py" \
-    --paths ~/.claude/skills ./.claude/skills \
-    --manifest ~/.claude/skill-hashes.json
+    --paths C:/Users/pc/.config/opencode/vendor/conjure-3301-skills ./.claude/skills \
+    --manifest ~/.config/opencode/skill-hashes.json
 ```

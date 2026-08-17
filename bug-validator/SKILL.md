@@ -10,7 +10,7 @@ metadata:
 
 ## Step 1 — Display ASCII art
 
-Read the file `~/.claude/skills/bug-validator/references/ascii-art.txt` and print its contents exactly as-is to the terminal. Do not modify, truncate, or summarize it.
+Read the file `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\bug-validator/references/ascii-art.txt` and print its contents exactly as-is to the terminal. Do not modify, truncate, or summarize it.
 
 Then print this line exactly:
 ```
@@ -74,7 +74,7 @@ Based on the user's selection, read the corresponding criteria file BEFORE proce
 | Bug Bounty | HackenProof | `references/criteria-bb.md` |
 | Bug Bounty | Other | `references/criteria-bb.md` |
 
-All criteria file paths are relative to `~/.claude/skills/bug-validator/`.
+All criteria file paths are relative to `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\bug-validator/`.
 
 Internalize the loaded criteria completely. Every judgment you make from this point forward MUST be grounded in the specific rules, severity definitions, automatic invalidators, PoC requirements, and scope rules of the loaded criteria. Do not apply rules from other platforms.
 

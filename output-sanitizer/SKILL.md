@@ -79,7 +79,7 @@ Recommended workflow when processing external data:
 ```bash
 SCRIPT_OUTPUT=$(python3 my_script.py)
 SANITIZED=$(echo "$SCRIPT_OUTPUT" | \
-    python3 ~/.claude/skills/output-sanitizer/scripts/sanitize_output.py)
+    python3 C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\output-sanitizer/scripts/sanitize_output.py)
 echo "$SANITIZED"
 ```
 

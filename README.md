@@ -8,18 +8,18 @@ Security auditing skills for the Plamen Web3 security auditing pipeline and bug 
 
 | Category | Count | Description |
 |----------|-------|-------------|
-| `bugexe-vuln-*` | 65 | Vulnerability classes (XSS, SSRF, IDOR, SQLi, RCE, etc.) |
-| `bugexe-tech-*` | 56 | Technology stacks (React, Django, Rails, WordPress, etc.) |
-| `bugexe-method-*` | 46 | Methodologies (exploit dev, threat modeling, chain building, etc.) |
-| `bugexe-recon-*` | 44 | Reconnaissance (deep recon, JS analysis, subdomain enum, etc.) |
-| `bugexe-web3-*` | 25 | Web3 security (smart contracts, MEV, bridges, oracles, etc.) |
-| `bugexe-tool-*` | 15 | Tools (nuclei, sqlmap, nmap, semgrep, ffuf, etc.) |
-| `bugexe-fw-*` | 11 | Frameworks (Django, Flask, Express, Laravel, Rails, etc.) |
-| `bugexe-arch-*` | 10 | Architectures (fintech, B2B SaaS, mobile API, AI SaaS, etc.) |
-| `bugexe-playbook-*` | 8 | Playbooks (bug bounty, API security, OWASP top 10, etc.) |
-| `bugexe-cloud-*` | 8 | Cloud providers (AWS, Azure, GCP, Kubernetes) |
-| `bugexe-proto-*` | 7 | Protocols (OAuth, SAML, GraphQL, gRPC, LDAP) |
-| `bugexe-mobile-*` | 3 | Mobile (Android DAST/SAST, iOS testing) |
+| Vulnerability classes (`idor`, `xss`, `ssrf`, `sql-injection`, `rce`, ...) | 65 | Vulnerability classes (XSS, SSRF, IDOR, SQLi, RCE, etc.) |
+| Technologies (`aws`, `react`, `stripe`, `tech-django`, ...) | 56 | Technology stacks (React, Django, Rails, WordPress, etc.) |
+| Methodologies (`chain-building`, `threat-modeling`, `kill-signals`, ...) | 46 | Methodologies (exploit dev, threat modeling, chain building, etc.) |
+| Reconnaissance (`deep-recon-bb`, `js-analysis`, `wayback-cdx-dorking`, ...) | 44 | Reconnaissance (deep recon, JS analysis, subdomain enum, etc.) |
+| Web3 (`smart-contract-audit`, `oracle-price-manipulation`, ...) | 25 | Web3 security (smart contracts, MEV, bridges, oracles, etc.) |
+| Tools (`nuclei`, `sqlmap`, `nmap`, `semgrep`, `ffuf`, ...) | 15 | Tools (nuclei, sqlmap, nmap, semgrep, ffuf, etc.) |
+| Frameworks (`django`, `flask`, `express`, `laravel`, `rails`, ...) | 11 | Frameworks (Django, Flask, Express, Laravel, Rails, etc.) |
+| Archetypes (`b2b-saas`, `fintech`, `mobile-api`, ...) | 10 | Architectures (fintech, B2B SaaS, mobile API, AI SaaS, etc.) |
+| Playbooks (`bug-bounty-playbook`, `api-security-playbook`, ...) | 8 | Playbooks (bug bounty, API security, OWASP top 10, etc.) |
+| Cloud (`aws`, `azure`, `gcp`, `kubernetes`) | 8 | Cloud providers (AWS, Azure, GCP, Kubernetes) |
+| Protocols (`oauth`, `saml`, `graphql`, `grpc`, `ldap`) | 7 | Protocols (OAuth, SAML, GraphQL, gRPC, LDAP) |
+| Mobile (`android-dast-sast`, `ios-testing`) | 3 | Mobile (Android DAST/SAST, iOS testing) |
 | Other | 122 | Utilities, standalone tools, frameworks, audits |
 
 ### Web3 Audit Pipeline Skills (98 skills)

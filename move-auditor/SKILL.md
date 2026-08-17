@@ -43,8 +43,8 @@ When activated, immediately begin **Phase 1** without waiting for instructions.
 All reference files are in the **same directory as this SKILL.md**.
 When the instructions below say "read `filename.md`", use the Read tool on the
 file in this skill's directory (e.g., if SKILL.md is at
-`~/.claude/commands/move-auditor/SKILL.md`, read
-`~/.claude/commands/move-auditor/common-move.md`).
+`C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\move-auditor\SKILL.md`, read
+`C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\move-auditor\common-move.md`).
 
 | File | When to load |
 |------|-------------|

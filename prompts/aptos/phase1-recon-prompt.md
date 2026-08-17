@@ -179,7 +179,7 @@ SCOPE_NOTES: {scope_notes_if_provided}
 
 ## TASK 0 Step 6: Fork Ancestry Research -- Aptos Move Parent Programs
 
-Read ~/.claude/agents/skills/aptos/fork-ancestry/SKILL.md (if it exists) or apply the FORK_ANCESTRY methodology with Aptos-specific parent detection:
+Read C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\aptos/fork-ancestry/SKILL.md (if it exists) or apply the FORK_ANCESTRY methodology with Aptos-specific parent detection:
 
 ### Known Aptos Move Parent Programs
 
@@ -901,18 +901,18 @@ Write to {SCRATCHPAD}/constraint_variables.md:
 
 ## TASK 10: Template Recommendations
 
-### Aptos Move-Specific Templates (in ~/.claude/agents/skills/aptos/)
+### Aptos Move-Specific Templates (in C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\aptos/)
 - ABILITY_ANALYSIS -- **ALWAYS required** (verify struct abilities match semantic intent: copy/drop/store/key)
 - BIT_SHIFT_SAFETY -- **ALWAYS required** (Move aborts on shift >= bit width, Cetus $223M pattern)
 - TYPE_SAFETY -- **ALWAYS required** (generic type parameter exploitation, phantom type abuse)
 - REF_LIFECYCLE -- **ALWAYS required** (ConstructorRef/MintRef/TransferRef/BurnRef/DeleteRef/FreezeRef lifecycle security)
 
-### Conditional Templates (in ~/.claude/agents/skills/aptos/)
+### Conditional Templates (in C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\aptos/)
 - FUNGIBLE_ASSET_SECURITY -- FA_STANDARD flag (FungibleStore manipulation, dispatchable hooks, primary store creation)
 - REENTRANCY_ANALYSIS -- REENTRANCY flag (module reentrancy via circular calls with mutable borrows, dispatchable hooks)
 - DEPENDENCY_AUDIT -- EXTERNAL_LIB flag (third-party module trust, upgrade risk, friend function abuse, interface compliance)
 
-### Shared Templates (adapted for Move, in ~/.claude/agents/skills/aptos/ or shared)
+### Shared Templates (adapted for Move, in C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\aptos/ or shared)
 - SEMI_TRUSTED_ROLES -- SEMI_TRUSTED_ROLE flag (admin/operator/capability-based role analysis, SignerCapability trust)
 - TOKEN_FLOW_TRACING -- BALANCE_DEPENDENT flag (Coin<T>/FungibleAsset balance dependency, donation attacks, internal tracking)
 - SHARE_ALLOCATION_FAIRNESS -- SHARE_ALLOCATION flag (share/allocation fairness, first depositor, rounding)
@@ -986,12 +986,12 @@ For EACH recommended template provide: Trigger, Relevance, Instantiation Paramet
 
 ### Injectable Skills
 {List any injectable skills recommended based on protocol type classification}
-- If protocol_type == 'vault': Recommend VAULT_ACCOUNTING injectable (from ~/.claude/agents/skills/injectable/vault-accounting/SKILL.md)
-- If protocol_type == 'lending': Recommend LENDING_PROTOCOL_SECURITY injectable (from ~/.claude/agents/skills/injectable/lending-protocol-security/SKILL.md)
-- If protocol_type == 'dex_integration': Recommend DEX_INTEGRATION_SECURITY injectable (from ~/.claude/agents/skills/injectable/dex-integration-security/SKILL.md)
-- If protocol_type == 'governance': Recommend GOVERNANCE_ATTACK_VECTORS injectable (from ~/.claude/agents/skills/injectable/governance-attack-vectors/SKILL.md)
-- If protocol_type == 'nft': Recommend NFT_PROTOCOL_SECURITY injectable (from ~/.claude/agents/skills/injectable/nft-protocol-security/SKILL.md)
-- If protocol_type == 'outcome_determinism': Recommend OUTCOME_DETERMINISM injectable (from ~/.claude/agents/skills/injectable/outcome-determinism/SKILL.md)
+- If protocol_type == 'vault': Recommend VAULT_ACCOUNTING injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/vault-accounting/SKILL.md)
+- If protocol_type == 'lending': Recommend LENDING_PROTOCOL_SECURITY injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/lending-protocol-security/SKILL.md)
+- If protocol_type == 'dex_integration': Recommend DEX_INTEGRATION_SECURITY injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/dex-integration-security/SKILL.md)
+- If protocol_type == 'governance': Recommend GOVERNANCE_ATTACK_VECTORS injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/governance-attack-vectors/SKILL.md)
+- If protocol_type == 'nft': Recommend NFT_PROTOCOL_SECURITY injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/nft-protocol-security/SKILL.md)
+- If protocol_type == 'outcome_determinism': Recommend OUTCOME_DETERMINISM injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/outcome-determinism/SKILL.md)
 - Inject Into: See skill-index.md for merge target per injectable
 - If vault detected → ZERO_STATE_RETURN **REQUIRED** (first-depositor analysis)
 

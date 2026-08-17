@@ -23,7 +23,7 @@ Mission: find every way to steal funds, lock funds, grief users, or break invari
 
 ## Version Check
 
-After printing the banner, run two parallel tool calls: (a) Read `~/.claude/skills/contract-auditor/VERSION`, (b) Bash `curl -sf https://raw.githubusercontent.com/DarkNavySecurity/web3-skills/main/contract-auditor/VERSION`. If the remote fetch succeeds and the versions differ, print:
+After printing the banner, run two parallel tool calls: (a) Read `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\contract-auditor/VERSION`, (b) Bash `curl -sf https://raw.githubusercontent.com/DarkNavySecurity/web3-skills/main/contract-auditor/VERSION`. If the remote fetch succeeds and the versions differ, print:
 
 > ⚠️ You are not using the latest version. Please upgrade for best security coverage.
 
@@ -40,7 +40,7 @@ Print the banner, run the Version Check, then:
 1. Discover in-scope files: Bash `find` for `.sol` files per mode selection (or use specified filenames).
 2. Resolve `{resolved_path}`:
    ```
-   Set {resolved_path} = ~/.claude/skills/contract-auditor/references
+   Set {resolved_path} = C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\contract-auditor/references
    Verify: Read {resolved_path}/knowledge/checklist.md (first 3 lines)
    If Read fails: Glob **/contract-auditor/references/knowledge/checklist.md
      and derive {resolved_path} from the result (two levels up).

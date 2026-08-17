@@ -1,5 +1,5 @@
 #!/bin/bash
-# Claude Bug Bounty — install skills into ~/.claude/skills/
+# Claude Bug Bounty — install skills into C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\
 
 set -e
 

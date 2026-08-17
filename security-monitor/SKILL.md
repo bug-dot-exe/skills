@@ -29,7 +29,7 @@ malicious patterns before untrusted skills are executed.
 When invoked, this skill runs `scripts/scan_skills.py` against all skill
 directories discoverable from standard install locations:
 
-- `~/.claude/skills/` (personal skills)
+- `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\` (personal skills)
 - `.claude/skills/` (project skills in current working directory)
 
 The scanner checks each `SKILL.md` and any associated scripts for:
@@ -83,8 +83,8 @@ Please scan the skills in ./downloaded-skills/ for security issues.
 ## Running the Scanner Manually
 
 ```bash
-python3 ~/.claude/skills/security-monitor/scripts/scan_skills.py \
-    --paths ~/.claude/skills .claude/skills \
+python3 C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\security-monitor/scripts/scan_skills.py \
+    --paths C:/Users/pc/.config/opencode/vendor/conjure-3301-skills .claude/skills \
     --report-format text
 ```
 
@@ -98,6 +98,6 @@ Run the security scanner now against all discoverable skill locations:
 
 ```bash
 python3 "$(dirname "$0")/scripts/scan_skills.py" \
-    --paths ~/.claude/skills ./.claude/skills \
+    --paths C:/Users/pc/.config/opencode/vendor/conjure-3301-skills ./.claude/skills \
     --report-format text
 ```

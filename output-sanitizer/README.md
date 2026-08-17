@@ -46,7 +46,7 @@ model behavior.
 ## Installation
 
 ```bash
-cp -r output-sanitizer ~/.claude/skills/output-sanitizer
+cp -r output-sanitizer C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\output-sanitizer
 ```
 
 ### Use via Claude
@@ -66,7 +66,7 @@ echo "$RESULT"  # Goes directly to Claude
 
 # After
 RESULT=$(python3 fetch_data.py | \
-    python3 ~/.claude/skills/output-sanitizer/scripts/sanitize_output.py)
+    python3 C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\output-sanitizer/scripts/sanitize_output.py)
 echo "$RESULT"  # Sanitized before Claude sees it
 ```
 

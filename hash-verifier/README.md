@@ -40,7 +40,7 @@ The tool operates in two phases:
 ### Step 1: Install the skill
 
 ```bash
-cp -r hash-verifier ~/.claude/skills/hash-verifier
+cp -r hash-verifier C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\hash-verifier
 ```
 
 ### Step 2: Review and trust your current skills
@@ -51,24 +51,24 @@ Once the manifest is created, it represents your trusted baseline.
 ### Step 3: Generate the initial manifest
 
 ```bash
-python3 ~/.claude/skills/hash-verifier/scripts/generate_manifest.py \
-    --paths ~/.claude/skills .claude/skills \
-    --manifest ~/.claude/skill-hashes.json
+python3 C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\hash-verifier/scripts/generate_manifest.py \
+    --paths C:/Users/pc/.config/opencode/vendor/conjure-3301-skills .claude/skills \
+    --manifest ~/.config/opencode/skill-hashes.json
 ```
 
-Store `~/.claude/skill-hashes.json` in version control for audit trails:
+Store `~/.config/opencode/skill-hashes.json` in version control for audit trails:
 
 ```bash
-cp ~/.claude/skill-hashes.json ./skill-hashes.json
+cp ~/.config/opencode/skill-hashes.json ./skill-hashes.json
 git add skill-hashes.json && git commit -m "chore: establish trusted skill manifest"
 ```
 
 ### Step 4: Verify before each session
 
 ```bash
-python3 ~/.claude/skills/hash-verifier/scripts/verify_hashes.py \
-    --paths ~/.claude/skills \
-    --manifest ~/.claude/skill-hashes.json
+python3 C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\hash-verifier/scripts/verify_hashes.py \
+    --paths C:/Users/pc/.config/opencode/vendor/conjure-3301-skills \
+    --manifest ~/.config/opencode/skill-hashes.json
 ```
 
 Or invoke via Claude: "Please verify skill integrity before we begin."
@@ -94,8 +94,8 @@ After reviewing and approving a skill update:
 
 ```bash
 python3 scripts/generate_manifest.py \
-    --paths ~/.claude/skills \
-    --manifest ~/.claude/skill-hashes.json \
+    --paths C:/Users/pc/.config/opencode/vendor/conjure-3301-skills \
+    --manifest ~/.config/opencode/skill-hashes.json \
     --force
 ```
 
@@ -105,8 +105,8 @@ The `--force` flag is required to prevent accidental overwrites.
 
 | Flag | Default | Description |
 |---|---|---|
-| `--paths` | `~/.claude/skills .claude/skills` | Directories to scan |
-| `--manifest` | `~/.claude/skill-hashes.json` | Manifest file location |
+| `--paths` | `C:/Users/pc/.config/opencode/vendor/conjure-3301-skills .claude/skills` | Directories to scan |
+| `--manifest` | `~/.config/opencode/skill-hashes.json` | Manifest file location |
 | `--force` | off | Overwrite existing manifest (generate only) |
 | `--strict` | off | Fail on new files as well as modifications (verify only) |
 | `--output-json` | none | Write JSON result alongside text report |

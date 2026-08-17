@@ -20,17 +20,17 @@
 | Phase | Load this file first (full playbook) | What you must produce before leaving the phase |
 |-------|--------------------------------------|-----------------------------------------------|
 | Scope / policy | Top of `instructions.md` + program page | Written list: in-scope URLs, exclusions, rate limits, “no automation” rules if any |
-| Recon | `~/.claude/skills/web2-recon/SKILL.md` | Subdomains/live hosts/URL corpus; prioritized targets (auth, API, uploads, billing) |
+| Recon | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\web2-recon/SKILL.md` | Subdomains/live hosts/URL corpus; prioritized targets (auth, API, uploads, billing) |
 | Recon (deep) | `~/.cursor/skills/bbrecon-subdomain-deep/SKILL.md` | Wildcards, CT edges, permutations if passive enum is thin |
 | API / auth discovery | `~/.cursor/skills/bbrecon-api-discovery/SKILL.md` | GraphQL/OpenAPI/OAuth/OIDC/webhook candidates |
 | Parameters | `~/.cursor/skills/bbrecon-parameter-discovery/SKILL.md` | High-value params from JS, Wayback, responses |
 | Scope expansion | `~/.cursor/skills/bbrecon-scope-expansion/SKILL.md` | Related assets only if **program allows** |
 | Map + proxy | `~/.cursor/skills/bb-hunter/SKILL.md` (§ Caido, Playwright) | Annotated flows; roles; trust boundaries; sitemap mental model |
-| Vuln classes (reference) | `~/.claude/skills/web2-vuln-classes/SKILL.md` | Pick classes matching the stack; don’t spray all 18 at once |
-| Payloads / bypass lists | `~/.claude/skills/security-arsenal/SKILL.md` | Use **after** you know the sink and parser context |
-| Validate before report | `~/.claude/skills/triage-validation/SKILL.md` | All 7 questions + 4 gates **pass** |
-| Write report | `~/.claude/skills/report-writing/SKILL.md` | Title formula, impact-first, raw HTTP evidence |
-| End-to-end methodology | `~/.claude/skills/bug-bounty/SKILL.md` | Chains, AI/LLM testing (ASI01–ASI10), language-specific greps, pre-hunt learning |
+| Vuln classes (reference) | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\web2-vuln-classes/SKILL.md` | Pick classes matching the stack; don’t spray all 18 at once |
+| Payloads / bypass lists | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\security-arsenal/SKILL.md` | Use **after** you know the sink and parser context |
+| Validate before report | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\triage-validation/SKILL.md` | All 7 questions + 4 gates **pass** |
+| Write report | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\report-writing/SKILL.md` | Title formula, impact-first, raw HTTP evidence |
+| End-to-end methodology | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\bug-bounty/SKILL.md` | Chains, AI/LLM testing (ASI01–ASI10), language-specific greps, pre-hunt learning |
 
 **Multi-agent (optional):** If splitting work: recon → `~/.cursor/skills/bb-hunter-agents/recon/SKILL.md`, attack → `.../attacking/`, validation → `.../validation/`, reporting → `.../reporting/`.
 
@@ -76,13 +76,13 @@ Read the **named** `SKILL.md` before testing that class. Use sibling endpoints a
 
 ## AI / LLM / “agentic” features
 
-If the target exposes chatbots, copilots, code tools, or plugins: read **`~/.claude/skills/bug-bounty/SKILL.md`** sections on LLM security (prompt injection, indirect injection, tool/RCE, exfil, ASI01–ASI10). Treat as **high priority** on modern SaaS.
+If the target exposes chatbots, copilots, code tools, or plugins: read **`C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\bug-bounty/SKILL.md`** sections on LLM security (prompt injection, indirect injection, tool/RCE, exfil, ASI01–ASI10). Treat as **high priority** on modern SaaS.
 
 ---
 
 ## Submission discipline (reminder)
 
-Before **any** submission narrative: run **`~/.claude/skills/triage-validation/SKILL.md`** (7 questions + 4 gates). Cross-check **NEVER SUBMIT** and **conditional chain** tables in `bb-hunter-full.md`. Write with **`~/.claude/skills/report-writing/SKILL.md`**.
+Before **any** submission narrative: run **`C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\triage-validation/SKILL.md`** (7 questions + 4 gates). Cross-check **NEVER SUBMIT** and **conditional chain** tables in `bb-hunter-full.md`. Write with **`C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\report-writing/SKILL.md`**.
 
 ---
 
@@ -95,12 +95,12 @@ Before **any** submission narrative: run **`~/.claude/skills/triage-validation/S
 ~/.cursor/skills/bbrecon-scope-expansion/SKILL.md
 ~/.cursor/skills/bbrecon-subdomain-deep/SKILL.md
 ~/.cursor/skills/bb-hunter-agents/recon|attacking|validation|reporting/SKILL.md
-~/.claude/skills/bug-bounty/SKILL.md
-~/.claude/skills/web2-recon/SKILL.md
-~/.claude/skills/web2-vuln-classes/SKILL.md
-~/.claude/skills/security-arsenal/SKILL.md
-~/.claude/skills/triage-validation/SKILL.md
-~/.claude/skills/report-writing/SKILL.md
+C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\bug-bounty/SKILL.md
+C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\web2-recon/SKILL.md
+C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\web2-vuln-classes/SKILL.md
+C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\security-arsenal/SKILL.md
+C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\triage-validation/SKILL.md
+C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\report-writing/SKILL.md
 ~/.codex/skills/strix-*/SKILL.md
 ```
 

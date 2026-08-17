@@ -34,7 +34,7 @@ entire session.
 ## Installation
 
 ```bash
-cp -r security-monitor ~/.claude/skills/security-monitor
+cp -r security-monitor C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\security-monitor
 ```
 
 Then ask Claude: "Run the security monitor to check my installed skills."
@@ -43,7 +43,7 @@ Then ask Claude: "Run the security monitor to check my installed skills."
 
 ```bash
 python3 scripts/scan_skills.py \
-    --paths ~/.claude/skills .claude/skills \
+    --paths C:/Users/pc/.config/opencode/vendor/conjure-3301-skills .claude/skills \
     --report-format text
 ```
 
@@ -59,7 +59,7 @@ echo "Exit code: $?"
 
 ```bash
 python3 scripts/scan_skills.py \
-    --paths ~/.claude/skills \
+    --paths C:/Users/pc/.config/opencode/vendor/conjure-3301-skills \
     --report-format json \
     --output security-report.json
 ```
@@ -68,7 +68,7 @@ python3 scripts/scan_skills.py \
 
 | Flag | Default | Description |
 |---|---|---|
-| `--paths` | `~/.claude/skills .claude/skills` | Directories to scan |
+| `--paths` | `C:/Users/pc/.config/opencode/vendor/conjure-3301-skills .claude/skills` | Directories to scan |
 | `--report-format` | `text` | `text` or `json` |
 | `--output` | stdout | Write report to file |
 | `--fail-on` | none | Exit non-zero if any skill >= this risk level |

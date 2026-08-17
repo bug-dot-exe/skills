@@ -35,7 +35,7 @@ Before manually reading code for risk scoring, extract compiler-verified structu
 
 **Run this command:**
 ```bash
-bash ~/.claude/skills/krait-recon/ast-extract.sh <project-root> .audit/ast-facts.md
+bash C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\krait\.claude\skills\krait\recon\ast-extract.sh <project-root> .audit/ast-facts.md
 ```
 
 This script will:
@@ -63,7 +63,7 @@ If `slither` is available on PATH and the project has a Solidity compilation set
 ```bash
 # Check if slither is available, run it, and extract summary
 which slither && slither <project-root> --json .audit/slither-results.json 2>/dev/null && \
-  bash ~/.claude/skills/krait-recon/slither-summary.sh .audit/slither-results.json .audit/slither-summary.md || true
+  bash C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\krait\.claude\skills\krait\recon\slither-summary.sh .audit/slither-results.json .audit/slither-summary.md || true
 ```
 
 **If Slither runs successfully:**
@@ -227,7 +227,7 @@ Based on protocol type, select the relevant vulnerability checklist:
 
 Based on what you discovered in Steps 1-5, evaluate each detection module's trigger condition and select the ones that apply. **This is deterministic — if the trigger condition is met, the module is selected.**
 
-Evaluate each module file in `~/.claude/skills/krait/detector/modules/` against what you found:
+Evaluate each module file in `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\krait\.claude\skills\krait\detector/modules/` against what you found:
 
 **Module tier hierarchy:**
 - **Tier 0 (always-load)**: `access-control-state.md` — always active for every audit

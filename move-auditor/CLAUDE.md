@@ -8,7 +8,7 @@ Instructions for Claude when working inside the `move-auditor` repository.
 
 This is a Claude Code skill for auditing Move smart contracts on Sui and Aptos.
 The skill lives in `move-auditor/` and is installed by copying that directory to
-`~/.claude/commands/move-auditor`.
+`C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\commands\move-auditor`.
 
 ---
 

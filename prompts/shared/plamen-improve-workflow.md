@@ -2,7 +2,7 @@
 
 > **Usage**: Orchestrator reads this file when the user runs `/plamen compare` (Step 0e).
 > Replace placeholders: `{REPORT_PATH}`, `{GROUND_TRUTH_PATH}`, `{PROJECT_ROOT}`.
-> **Reference**: `~/.claude/rules/post-audit-improvement-protocol.md` for anti-anchoring rules and RC classification codes.
+> **Reference**: `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\rules\post-audit-improvement-protocol.md` for anti-anchoring rules and RC classification codes.
 
 ---
 
@@ -119,9 +119,9 @@ reasoning error.
 
 ### Pipeline Files (read as needed)
 You have grep/read access to:
-- ~/.claude/rules/ (all shared rules: R1-R16 in generic-security-rules, confidence scoring, etc.)
-- ~/.claude/prompts/evm/ (recon, inventory, depth, scanner, verification prompts)
-- ~/.claude/agents/skills/ (all skill trees: evm/, solana/, aptos/, sui/, injectable/, niche/)
+- C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\rules\ (all shared rules: R1-R16 in generic-security-rules, confidence scoring, etc.)
+- C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\prompts\evm/ (recon, inventory, depth, scanner, verification prompts)
+- C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\ (all skill trees: evm/, solana/, aptos/, sui/, injectable/, niche/)
 - {PROJECT_ROOT}/.plamen/ scratchpad files (agent output from the audit run)
 
 ### Audit Agent Outputs
@@ -138,7 +138,7 @@ pass ALL THREE questions. If ANY answer is NO → classify as RC-AGENT.
 Q1 — METHODOLOGY SEARCH:
   Grep existing rules, scanner checks, depth templates, skills, and security
   rules for keywords related to this vulnerability class.
-  Command: grep -r '{vuln_class_keywords}' ~/.claude/rules/ ~/.claude/prompts/evm/ ~/.claude/agents/skills/evm/
+  Command: grep -r '{vuln_class_keywords}' C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\rules\ C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\prompts\evm/ C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\evm/
   Did the search find ZERO relevant coverage? [YES/NO]
   If NO (coverage exists): DEFAULT TO RC-AGENT.
 
@@ -231,9 +231,9 @@ methodology improvement and verify it passes anti-bloat gates.
 
 ### Pipeline Files (read as needed)
 You have read access to all files in:
-- ~/.claude/rules/
-- ~/.claude/prompts/evm/
-- ~/.claude/agents/skills/
+- C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\rules\
+- C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\prompts\evm/
+- C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\
 
 ## Decision Tree (per miss)
 

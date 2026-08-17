@@ -156,7 +156,7 @@ SCOPE_NOTES: {scope_notes_if_provided}
 
 ## TASK 0 Step 6: Fork Ancestry Research -- Sui Parent Packages
 
-Read ~/.claude/agents/skills/sui/fork-ancestry/SKILL.md (if exists) or apply the methodology below with Sui-specific parent detection:
+Read C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\sui/fork-ancestry/SKILL.md (if exists) or apply the methodology below with Sui-specific parent detection:
 
 ### Known Sui Parent Packages
 
@@ -769,12 +769,12 @@ Available conditional templates:
 
 ### Injectable Skills
 {List any injectable skills recommended based on protocol type classification}
-- If protocol_type == 'vault': Recommend VAULT_ACCOUNTING injectable (from ~/.claude/agents/skills/injectable/vault-accounting/SKILL.md)
-- If protocol_type == 'lending': Recommend LENDING_PROTOCOL_SECURITY injectable (from ~/.claude/agents/skills/injectable/lending-protocol-security/SKILL.md)
-- If protocol_type == 'dex_integration': Recommend DEX_INTEGRATION_SECURITY injectable (from ~/.claude/agents/skills/injectable/dex-integration-security/SKILL.md)
-- If protocol_type == 'governance': Recommend GOVERNANCE_ATTACK_VECTORS injectable (from ~/.claude/agents/skills/injectable/governance-attack-vectors/SKILL.md)
-- If protocol_type == 'nft': Recommend NFT_PROTOCOL_SECURITY injectable (from ~/.claude/agents/skills/injectable/nft-protocol-security/SKILL.md)
-- If protocol_type == 'outcome_determinism': Recommend OUTCOME_DETERMINISM injectable (from ~/.claude/agents/skills/injectable/outcome-determinism/SKILL.md)
+- If protocol_type == 'vault': Recommend VAULT_ACCOUNTING injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/vault-accounting/SKILL.md)
+- If protocol_type == 'lending': Recommend LENDING_PROTOCOL_SECURITY injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/lending-protocol-security/SKILL.md)
+- If protocol_type == 'dex_integration': Recommend DEX_INTEGRATION_SECURITY injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/dex-integration-security/SKILL.md)
+- If protocol_type == 'governance': Recommend GOVERNANCE_ATTACK_VECTORS injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/governance-attack-vectors/SKILL.md)
+- If protocol_type == 'nft': Recommend NFT_PROTOCOL_SECURITY injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/nft-protocol-security/SKILL.md)
+- If protocol_type == 'outcome_determinism': Recommend OUTCOME_DETERMINISM injectable (from C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\injectable/outcome-determinism/SKILL.md)
 - Inject Into: See skill-index.md for merge target per injectable
 - If vault detected → ZERO_STATE_RETURN **REQUIRED** (first-depositor analysis)
 

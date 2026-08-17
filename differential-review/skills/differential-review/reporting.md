@@ -310,7 +310,7 @@ new code
 **Priority order for output:**
 1. Current working directory (if project repo)
 2. User's Desktop
-3. `~/.claude/skills/differential-review/output/`
+3. `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\differential-review/output/`
 
 **Filename format:**
 ```

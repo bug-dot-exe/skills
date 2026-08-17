@@ -84,24 +84,24 @@ Select auditors based on CHAIN and MODE:
 
 | Mode | Auditors | Skill Paths |
 |------|----------|-------------|
-| `quick` | contract-auditor, tiny-auditor | `~/.claude/skills/contract-auditor/SKILL.md`, `~/.claude/skills/tiny-auditor/SKILL.md` |
-| `core` | contract-auditor, krait, code-sleuth | `~/.claude/skills/contract-auditor/SKILL.md`, `~/.claude/skills/krait/.claude/skills/krait/SKILL.md`, `~/.claude/skills/code-sleuth/SKILL.md` |
+| `quick` | contract-auditor, tiny-auditor | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\contract-auditor/SKILL.md`, `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\tiny-auditor/SKILL.md` |
+| `core` | contract-auditor, krait, code-sleuth | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\contract-auditor/SKILL.md`, `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\krait\.claude\skills/krait/SKILL.md`, `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\code-sleuth/SKILL.md` |
 | `deep` | **Wave 1**: contract-auditor (deep flag), krait (full 4-phase, 15 modules), kann-solidity-auditor, code-sleuth (storage safety). **Wave 2**: nemesis-auditor, monethic-maia, tiny-auditor. **Wave 3**: plamen (thorough). | See wave spawning in Phase 2 below. |
 
 ### Solana / Rust
 
 | Mode | Auditors | Skill Paths |
 |------|----------|-------------|
-| `quick` | nemesis-auditor | `~/.claude/skills/nemesis-auditor/SKILL.md` |
-| `core` | nemesis-auditor, tiny-auditor | + `~/.claude/skills/tiny-auditor/SKILL.md` |
+| `quick` | nemesis-auditor | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\nemesis-auditor/SKILL.md` |
+| `core` | nemesis-auditor, tiny-auditor | + `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\tiny-auditor/SKILL.md` |
 | `deep` | **Wave 1**: nemesis-auditor, tiny-auditor, monethic-maia. **Wave 2**: plamen (thorough). | See wave spawning in Phase 2 below. |
 
 ### Move (Sui / Aptos)
 
 | Mode | Auditors | Skill Paths |
 |------|----------|-------------|
-| `quick` | move-auditor | `~/.claude/skills/move-auditor/SKILL.md` |
-| `core` | move-auditor, monethic-maia | + `~/.claude/skills/monethic-maia/SKILL.md` |
+| `quick` | move-auditor | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\move-auditor/SKILL.md` |
+| `core` | move-auditor, monethic-maia | + `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\monethic-maia/SKILL.md` |
 | `deep` | **Wave 1**: move-auditor, monethic-maia, nemesis-auditor. **Wave 2**: plamen (thorough). | See wave spawning in Phase 2 below. |
 
 ---
@@ -110,7 +110,7 @@ Select auditors based on CHAIN and MODE:
 
 **Skip if**: MODE is `quick` OR `--no-recon` flag is set.
 
-Read `~/.claude/skills/x-ray/SKILL.md`. Spawn **one foreground Agent** with:
+Read `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\x-ray/SKILL.md`. Spawn **one foreground Agent** with:
 - Full text of x-ray SKILL.md
 - In-scope file list
 - Instruction: "Execute the x-ray pipeline. Focus on the threat model and invariants sections. Write output to `{TEMP_DIR}/threat-model.md`."
@@ -160,7 +160,7 @@ Deep mode uses a 3-wave strategy (2-wave for Solana/Move) to maximize coverage. 
    - **tiny-auditor**: Standard audit prompt
 
 **Wave 3** (sequential, after Wave 2 completes):
-1. Read `~/.claude/commands/plamen.md`
+1. Read `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\commands\plamen.md`
 2. Spawn **ONE** foreground Agent with:
    - Full text of `plamen.md`
    - Arguments: `thorough wrapper-launch nodocs`
@@ -174,7 +174,7 @@ Deep mode uses a 3-wave strategy (2-wave for Solana/Move) to maximize coverage. 
 2. Spawn all 3 Wave 1 agents in a single message as **parallel foreground Agent calls**
 
 **Wave 2** (sequential, after Wave 1 completes):
-1. Read `~/.claude/commands/plamen.md`
+1. Read `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\commands\plamen.md`
 2. Spawn ONE foreground Agent with `thorough wrapper-launch nodocs` arguments (same instructions as EVM Wave 3 above)
 
 #### Move Deep Mode — 2 Waves
@@ -184,7 +184,7 @@ Deep mode uses a 3-wave strategy (2-wave for Solana/Move) to maximize coverage. 
 2. Spawn all 3 Wave 1 agents in a single message as **parallel foreground Agent calls**
 
 **Wave 2** (sequential, after Wave 1 completes):
-1. Read `~/.claude/commands/plamen.md`
+1. Read `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\commands\plamen.md`
 2. Spawn ONE foreground Agent with `thorough wrapper-launch nodocs` arguments (same instructions as EVM Wave 3 above)
 
 ### Agent Prompt Template (all modes, all waves)
@@ -262,7 +262,7 @@ Re-number sequentially: C-01, H-01, M-01, L-01, I-01.
 
 ### Step 5 — Deep mode validation (deep only)
 
-Read `~/.claude/skills/triage-validation/SKILL.md`. Spawn one Agent with the full findings list to run a second-opinion validation pass on all Medium+ findings. Apply any downgrades or kills from its output.
+Read `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\triage-validation/SKILL.md`. Spawn one Agent with the full findings list to run a second-opinion validation pass on all Medium+ findings. Apply any downgrades or kills from its output.
 
 **State checkpoint append:**
 ```
@@ -277,7 +277,7 @@ DEDUP_COUNT: N duplicates merged
 
 **Skip if**: CHAIN is not `evm`, or MODE is `quick`, or no Critical/High findings survived validation.
 
-Read `~/.claude/skills/foundry-poc/SKILL.md`. For each Critical and High finding that survived Phase 3:
+Read `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\foundry-poc/SKILL.md`. For each Critical and High finding that survived Phase 3:
 
 Spawn **parallel foreground Agent calls** (one per finding, max 4 concurrent). Each agent prompt contains:
 
@@ -465,15 +465,15 @@ All auditor SKILL.md paths for Read calls:
 
 | Skill | Path |
 |-------|------|
-| contract-auditor | `~/.claude/skills/contract-auditor/SKILL.md` |
-| krait | `~/.claude/skills/krait/.claude/skills/krait/SKILL.md` |
-| kann-solidity-auditor | `~/.claude/skills/kann-solidity-auditor/SKILL.md` |
-| nemesis-auditor | `~/.claude/skills/nemesis-auditor/SKILL.md` |
-| tiny-auditor | `~/.claude/skills/tiny-auditor/SKILL.md` |
-| code-sleuth | `~/.claude/skills/code-sleuth/SKILL.md` |
-| monethic-maia | `~/.claude/skills/monethic-maia/SKILL.md` |
-| move-auditor | `~/.claude/skills/move-auditor/SKILL.md` |
-| x-ray | `~/.claude/skills/x-ray/SKILL.md` |
-| triage-validation | `~/.claude/skills/triage-validation/SKILL.md` |
-| foundry-poc | `~/.claude/skills/foundry-poc/SKILL.md` |
-| plamen | `~/.claude/commands/plamen.md` |
+| contract-auditor | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\contract-auditor/SKILL.md` |
+| krait | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\krait\.claude\skills/krait/SKILL.md` |
+| kann-solidity-auditor | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\kann-solidity-auditor/SKILL.md` |
+| nemesis-auditor | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\nemesis-auditor/SKILL.md` |
+| tiny-auditor | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\tiny-auditor/SKILL.md` |
+| code-sleuth | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\code-sleuth/SKILL.md` |
+| monethic-maia | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\monethic-maia/SKILL.md` |
+| move-auditor | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\move-auditor/SKILL.md` |
+| x-ray | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\x-ray/SKILL.md` |
+| triage-validation | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\triage-validation/SKILL.md` |
+| foundry-poc | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\foundry-poc/SKILL.md` |
+| plamen | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\commands\plamen.md` |

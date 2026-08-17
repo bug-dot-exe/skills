@@ -165,13 +165,13 @@ def main():
         description="Verify Claude Skills file integrity against a stored manifest."
     )
     parser.add_argument(
-        "--paths", nargs="+", default=["~/.claude/skills", ".claude/skills"],
+        "--paths", nargs="+", default=["C:/Users/pc/.config/opencode/vendor/conjure-3301-skills", ".claude/skills"],
         metavar="PATH",
-        help="Skill root directories to verify (default: ~/.claude/skills .claude/skills)",
+        help="Skill root directories to verify (default: opencode vendor skills + .claude/skills)",
     )
     parser.add_argument(
-        "--manifest", default="~/.claude/skill-hashes.json", metavar="FILE",
-        help="Path to the manifest JSON (default: ~/.claude/skill-hashes.json)",
+        "--manifest", default="~/.config/opencode/skill-hashes.json", metavar="FILE",
+        help="Path to the manifest JSON (default: ~/.config/opencode/skill-hashes.json)",
     )
     parser.add_argument(
         "--output-json", metavar="FILE",

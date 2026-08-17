@@ -499,10 +499,10 @@ public fun flash_repay<T>(pool: &mut Pool<T>, coin: Coin<T>, receipt: FlashLoanR
 >
 > | Rule | Skill File | Trigger |
 > |------|-----------|---------|
-> | MR1 | `~/.claude/agents/skills/aptos/ability-analysis/SKILL.md` | Always |
-> | MR2 | `~/.claude/agents/skills/aptos/bit-shift-safety/SKILL.md` | Always |
-> | MR3 | `~/.claude/agents/skills/aptos/type-safety/SKILL.md` | Always |
-> | MR4 | `~/.claude/agents/skills/aptos/dependency-audit/SKILL.md` | EXTERNAL_LIB flag |
+> | MR1 | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\aptos/ability-analysis/SKILL.md` | Always |
+> | MR2 | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\aptos/bit-shift-safety/SKILL.md` | Always |
+> | MR3 | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\aptos/type-safety/SKILL.md` | Always |
+> | MR4 | `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\aptos/dependency-audit/SKILL.md` | EXTERNAL_LIB flag |
 >
 > If you are a breadth or depth agent: you already have these skills loaded. Do NOT request them again. Apply the skill methodology directly.
 
