@@ -22,14 +22,10 @@ maintained here as one loadable tree.
 - Utility skills: `hash-verifier` (integrity manifests), `security-monitor`,
   `output-sanitizer`, plus misc helpers
 
-## Category breakdown (renamed skills)
+## Category breakdown
 
-On 2026-08-17, the 279 `bugexe-*` prefixed directories were renamed to plain
-kebab-case names derived from their frontmatter; frontmatter was normalized to
-match folder names, and all cross-references were swept. Former categories:
-
-| Category | Count | Examples (new names) |
-|----------|-------|----------------------|
+| Category | Count | Examples |
+|----------|-------|----------|
 | Vulnerability classes | 64 | `idor`, `xss`, `ssrf`, `sql-injection`, `rce` |
 | Technologies | 55 | `aws`, `stripe`, `react`, `tech-django` |
 | Methodologies | 44 | `chain-building`, `kill-signals`, `threat-modeling` |
@@ -43,10 +39,6 @@ match folder names, and all cross-references were swept. Former categories:
 | Cloud | 4 | `aws`, `azure`, `gcp`, `kubernetes` |
 | Mobile | 2 | `android-dast-sast`, `ios-testing` |
 | Custom | 1 | `source-aware-sast` |
-
-Collision resolutions from the rename: nine technology skills kept a `tech-`
-prefix because a framework skill already had the plain name (`tech-django`),
-plus `web3-smart-contract-audit` and four `method-*` qualifiers.
 
 ## Lineage
 
