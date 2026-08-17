@@ -1,66 +1,92 @@
-# Plamen Skills
+# Conjure 3301 Skills
 
-Security auditing skills for the Plamen Web3 security auditing pipeline and bug bounty hunting.
+A consolidated collection of AI-agent skills for authorized security research,
+bug bounty hunting, and smart-contract auditing. Not a single product: the
+skills were assembled from multiple upstream open-source projects and are
+maintained here as one loadable tree.
 
-## Structure
+## What's in here
 
-### Bug Bounty & Recon Skills (404 skills)
+- 417 top-level skill directories, 622 SKILL.md files
+- Bug bounty hunting: vulnerability classes, methodologies, reconnaissance,
+  tools, frameworks, technologies, cloud, playbooks, archetypes
+- The `hunt-deep` orchestrator: multi-agent bounty pipeline (scope -> intel ->
+  recon -> parallel vuln-class hunters -> validate -> rescan loop -> chain ->
+  report), merged with the TTM depth discipline
+- A web3 audit pipeline (`prompts/`, `rules/`, `agents/`, `commands/`,
+  `aptos/`, `evm/`, `sui/`, `solana/`, `injectable/`, `niche/`) - the Plamen
+  pipeline skills
+- Standalone smart-contract auditors and frameworks (`solidity-guard`,
+  `building-secure-contracts`, `krait`, `monethic-maia`, `nemesis-auditor`,
+  `move-auditor-skills`, and others)
+- Utility skills: `hash-verifier` (integrity manifests), `security-monitor`,
+  `output-sanitizer`, plus misc helpers
 
-| Category | Count | Description |
-|----------|-------|-------------|
-| Vulnerability classes (`idor`, `xss`, `ssrf`, `sql-injection`, `rce`, ...) | 65 | Vulnerability classes (XSS, SSRF, IDOR, SQLi, RCE, etc.) |
-| Technologies (`aws`, `react`, `stripe`, `tech-django`, ...) | 56 | Technology stacks (React, Django, Rails, WordPress, etc.) |
-| Methodologies (`chain-building`, `threat-modeling`, `kill-signals`, ...) | 46 | Methodologies (exploit dev, threat modeling, chain building, etc.) |
-| Reconnaissance (`deep-recon-bb`, `js-analysis`, `wayback-cdx-dorking`, ...) | 44 | Reconnaissance (deep recon, JS analysis, subdomain enum, etc.) |
-| Web3 (`smart-contract-audit`, `oracle-price-manipulation`, ...) | 25 | Web3 security (smart contracts, MEV, bridges, oracles, etc.) |
-| Tools (`nuclei`, `sqlmap`, `nmap`, `semgrep`, `ffuf`, ...) | 15 | Tools (nuclei, sqlmap, nmap, semgrep, ffuf, etc.) |
-| Frameworks (`django`, `flask`, `express`, `laravel`, `rails`, ...) | 11 | Frameworks (Django, Flask, Express, Laravel, Rails, etc.) |
-| Archetypes (`b2b-saas`, `fintech`, `mobile-api`, ...) | 10 | Architectures (fintech, B2B SaaS, mobile API, AI SaaS, etc.) |
-| Playbooks (`bug-bounty-playbook`, `api-security-playbook`, ...) | 8 | Playbooks (bug bounty, API security, OWASP top 10, etc.) |
-| Cloud (`aws`, `azure`, `gcp`, `kubernetes`) | 8 | Cloud providers (AWS, Azure, GCP, Kubernetes) |
-| Protocols (`oauth`, `saml`, `graphql`, `grpc`, `ldap`) | 7 | Protocols (OAuth, SAML, GraphQL, gRPC, LDAP) |
-| Mobile (`android-dast-sast`, `ios-testing`) | 3 | Mobile (Android DAST/SAST, iOS testing) |
-| Other | 122 | Utilities, standalone tools, frameworks, audits |
+## Category breakdown (renamed skills)
 
-### Web3 Audit Pipeline Skills (98 skills)
+On 2026-08-17, the 279 `bugexe-*` prefixed directories were renamed to plain
+kebab-case names derived from their frontmatter; frontmatter was normalized to
+match folder names, and all cross-references were swept. Former categories:
 
-| Platform | Count | Description |
-|----------|-------|-------------|
-| `aptos/` | 22 | Aptos Move security skills |
-| `evm/` | 18 | EVM/Solidity security skills |
-| `solana/` | 20 | Solana/Anchor security skills |
-| `sui/` | 22 | Sui Move security skills |
-| `injectable/` | 8 | Protocol-type-specific injectable skills |
-| `niche/` | 8 | Flag-triggered standalone niche agent skills |
+| Category | Count | Examples (new names) |
+|----------|-------|----------------------|
+| Vulnerability classes | 64 | `idor`, `xss`, `ssrf`, `sql-injection`, `rce` |
+| Technologies | 55 | `aws`, `stripe`, `react`, `tech-django` |
+| Methodologies | 44 | `chain-building`, `kill-signals`, `threat-modeling` |
+| Reconnaissance | 42 | `deep-recon-for-bug-bounties`, `js-analysis`, `wayback-cdx-dorking` |
+| Web3 | 22 | `oracle-price-manipulation`, `mev-sandwich-attacks` |
+| Tools | 15 | `ffuf`, `nuclei`, `sqlmap`, `semgrep` |
+| Frameworks | 11 | `django`, `flask`, `express`, `rails` |
+| Playbooks | 8 | `bug-bounty-playbook`, `owasp-top10-playbook` |
+| Archetypes | 6 | `b2b-saas`, `fintech`, `mobile-api` |
+| Protocols | 5 | `oauth`, `saml`, `graphql` |
+| Cloud | 4 | `aws`, `azure`, `gcp`, `kubernetes` |
+| Mobile | 2 | `android-dast-sast`, `ios-testing` |
+| Custom | 1 | `source-aware-sast` |
 
-### Prompts (`prompts/`)
+Collision resolutions from the rename: nine technology skills kept a `tech-`
+prefix because a framework skill already had the plain name (`tech-django`),
+plus `web3-smart-contract-audit` and four `method-*` qualifiers.
 
-40 audit pipeline prompt templates across 5 platforms (aptos, evm, shared, solana, sui) — recon, inventory, depth, scanner, verification, and security rules.
+## Lineage
 
-### Cross-Tool Skills
+Content originates from multiple upstream projects, including the Conjure bug
+bounty cockpit, the Plamen web3 audit pipeline, codex-bug-bounty, grimoire,
+cursor-skills, the Trail of Bits testing handbook, solidity-guard, and others.
+Skills retain their upstream content; some carry attribution files (e.g.
+`krait/ATTRIBUTION.md`). This repository has no LICENSE file of its own -
+individual upstream licenses apply. Verify licensing before redistributing
+anything.
 
-| Directory | Count | Source |
-|-----------|-------|--------|
-| `cursor-skills/` | 14 | Cursor bug bounty recon skills |
-| `cursor-skills-cursor/` | 13 | Cursor utility/workflow skills |
-| `codex-skills/` | 6 | Codex platform skills |
-| `codex-bug-bounty/` | ~10 | Codex bug bounty plugin (full plugin) |
-| `deepseek-skills/` | 1 | DeepSeek platform skill |
-| `goal/` | 1 | Goal tracking skill |
-| `audit-prep/` | 1 | Audit preparation skill |
+## Loading
 
-### Commands (`commands/`)
+This tree is consumed by opencode:
 
-24 slash commands: hunt, recon, scope, validate, triage, chain, report, ctf-solver, web3-audit, and more.
+```json
+{ "skills": { "paths": ["C:/Users/pc/.config/opencode/vendor/conjure-3301-skills"] } }
+```
 
-### Agents (`agents/`)
+Skill names are kebab-case and match their folder names. Restart the client
+after changes - the skill registry loads at startup.
 
-6 agent definitions: security-analyzer, security-verifier, depth-state-trace, depth-token-flow, depth-external, depth-edge-case.
+## Repository
 
-### Rules (`rules/`)
+Public at `github.com/conjure-3301/skills`, branch `main`. Commit rules:
 
-10 methodology rules: finding output format, confidence scoring, chain analysis, report templates, PoC execution, post-audit improvement, and more.
+- Only skill content goes here. Never commit target data, credentials,
+  operator hunt briefs, run artifacts, or captured traffic.
+- Keep skills target-agnostic - no hardcoded industry or program vocabulary.
 
-## Usage
+## Safety
 
-Each skill is defined in its `SKILL.md` file. Web3 audit skills are loaded by Plamen pipeline agents based on trigger patterns. Bug bounty skills are invoked via the `Skill` tool or slash commands.
+These skills describe offensive security techniques. Use them only against
+systems you own or have explicit written authorization to test. Respect each
+program's scope, rules of engagement, and rate limits.
+
+## Known quirks
+
+- Vendored collections keep their internal structure; some nested trees contain
+  their own SKILL.md hierarchies and occasional stale references.
+- `docs/`, `agents/`, `prompts/`, `rules/`, `commands/` are pipeline internals
+  and developer documentation, not user-facing skills.
+- Root stray files (`coverage.md`, `goal`) are artifacts, not skills.
