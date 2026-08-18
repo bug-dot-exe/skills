@@ -216,6 +216,8 @@ TECH_STACK: {detected technologies — populated after recon}
 6. **SKIP** bug classes the program explicitly excludes from bounty
 7. **BLOCK** shell commands matching the mechanical bash blacklist (rm -rf,
    mkfs, dd, shutdown, reboot, fork bombs, chmod -R 777) — never run them
+8. **NO BLIND REQUESTS** — every request carries a hypothesis and an expected
+   result. No spraying, no "let's see what happens" traffic.
 
 ---
 
@@ -516,6 +518,10 @@ If `--source` flag is set, also spawn in Wave 1:
 - Read `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\source-aware-sast/SKILL.md` for SAST methodology
 - If web3 source: load `web3-smart-contract-audit` + `solidity-analysis`
 - Spawn source audit agent targeting the provided path
+- **Four-pass reading** (read everything once, never re-read): pass 1 = sinks
+  and dangerous calls; pass 2 = taint from user-controlled sources into those
+  sinks; pass 3 = the NEWEST code (recently changed = recently broken); pass 4
+  = git history for weakened checks and deleted guards.
 - Write to `{TARGET_DIR}/findings/findings-source.md`
 
 ### Archetype Skills (deep mode)
@@ -570,6 +576,15 @@ from - and before - the independent validator below.
 standard or concrete comparator ("same impact as the accepted report X on
 intel.md", "VRT class Y"), never to how impressive the mechanism felt. When in
 doubt about an upgrade, don't.
+
+**Hedging-language ban:** "could potentially", "may allow", "might lead to"
+are banned. You proved it or you didn't.
+
+**Per-class minimum-evidence bars:** each class needs its specific proof, not
+a status code — IDOR needs another user's data in the response body;
+stored XSS needs the payload to persist and re-fire; SSRF needs a response
+from the internal host; blind classes need an OOB callback. A 200 is never
+proof by itself.
 
 **Step 0 — deterministic hash dedup (before anything else):** compute
 `finding_hash = sha256(target + title + description + evidence + impact +
@@ -708,6 +723,11 @@ Write to `{TARGET_DIR}/knowledge.md`, keyed `product + topology_id`:
 new confirmed facts, falsified paths WITH reason, risk patterns observed,
 updated root-cause clusters. A run that leaves this empty did half the job.
 
+**Self-evolution iron law**: if this run executed a working technique the
+playbook didn't know — a bypass, a chain, a non-obvious trick — write it back
+into the relevant skill or KB so the next hunt starts smarter. A methodology
+change starts with a failing example first; never bend a rule silently.
+
 **State checkpoint append:**
 ```
 VALIDATED_FINDINGS: [final list]
@@ -733,6 +753,12 @@ For each validated finding, spawn a **report-writer Agent** (parallel, max 4 con
 - Platform format (H1/Bugcrowd/Intigriti/Immunefi)
 - All loaded report methodology skills
 - Instruction: "Write a submission-ready report. Use concrete language — never 'could potentially'. Include exact HTTP requests, screenshots descriptions, and quantified impact. Write to `{TARGET_DIR}/reports/{finding-id}.md`."
+
+**Maintainer-mindset test (before a report is final):** the triager sees
+50-200 reports a day and gives yours ~10 minutes. The reproduction must be
+copy-paste, the impact plain in one sentence, and everything about YOU cut
+from it. Tone is scored — a report that reads as a sales pitch downgrades
+itself.
 
 ### Platform-Specific Format
 
