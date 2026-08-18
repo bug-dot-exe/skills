@@ -43,13 +43,46 @@ Full merged reference: `C:\Users\pc\OneDrive - BIM ADVANCED TECHNOLOGY SERVICES 
 - **Role-sweep mandate**: authenticate every provided credential serially
   before testing; a 403 to one role proves nothing — re-test with each role.
 - **Negative knowledge is a deliverable**: record refuted hypotheses and the
-  guard that holds — falsified paths carry a reason for the next run.
+  guard that holds — falsified paths carry a reason for the next run. Three
+  distinct endings, never conflated: HONEST ZERO (tested, clean, proven so),
+  FALSE KILL (a real bug you mislabeled as not-a-bug — reason must survive),
+  ABANDONED LEAD (a genuine trail you dropped — it stays in the open-leads
+  list until closed). Never conclude "secure" from a tired sweep.
 - **Coverage attestation**: record every (surface × class) CONSIDERED —
   input-handling, authz, state/workflow, auth/session — with outcome. Blank
   cells are work items, not passes.
 - **Knowledge persistence**: read prior knowledge (product + topology) in
   Phase 0; commit facts/falsified paths/risk patterns at the end — even on a
   zero-finding run. Never store verdicts cross-run (anti-anchoring).
+- **Coverage ledger (6-state cells)** — maintain a LIVE ledger of every
+  (surface × class) cell, one state per cell, updated in the moment, BEFORE
+  the next action:
+  `TESTED-CLEAN` (which ladder rungs ran + why confident), `KILLED-FP`
+  (it looked like a bug; record ARTIFACT + LOOKED-LIKE + DISPROOF + COST),
+  `SUSPICIOUS` (anomaly with a finding id — never left hanging), `VULNERABLE`
+  (id + severity), `SKIPPED` (reason), `NOT-YET-TESTED` (work queue).
+  Zero NOT-YET-TESTED and zero unresolved SUSPICIOUS = the "am I done?" oracle.
+- **False-positive memory** — a killed FP is an artifact you must recognize on
+  sight. Keep a searchable FP list per target; grep it BEFORE investigating
+  anything familiar and before trusting any scanner/model/teammate finding.
+  Never delete FP entries — they cost time once and buy it back every session.
+  An open-leads section holds genuine trails not yet closed; an open lead
+  means you are NOT done even with nothing to submit.
+- **Depth ladders, not payload spam** — a class is not "tested" until its full
+  ladder is climbed; each rung is a DISTINCT technique, not a payload variant.
+  SQLi: error → boolean-blind → time-blind → UNION → stacked → OOB/DNS →
+  second-order → WAF-bypass encodings. One endpoint climbed to exhaustion
+  beats fifty tested shallowly.
+- **Passive-first** — exhaust passive sources (cert transparency, DNS history,
+  web archives, public code/paste, disclosed reports) BEFORE any packet
+  reaches the target. Active testing spends your quiet window; passive
+  surfaces the forgotten subdomain and leaked key for zero rate-limit budget.
+  Recon is 60-70% of elite hunting time — it IS the hunt, not the warm-up.
+  Rotate VECTORS, never TARGETS.
+- **OOB channel at setup** — check in Phase 0: do you have a collaborator /
+  interaction listener? Without one, blind SSRF, blind XXE, blind command
+  injection, and blind XSS are UNTESTABLE — four high-value classes go
+  silently unexamined. Arrange it in setup, not when you need it.
 - **Gate chain**: reachability → accessibility → exploitability, in order.
   Code existing is not reachability.
 
@@ -141,7 +174,12 @@ echo "$TARGET_DIR"
    - If `@handle` or `h1:name`: Use WebFetch to read `https://hackerone.com/{handle}` or platform equivalent. Extract: in-scope domains, out-of-scope exclusions, bounty table, excluded bug classes.
    - If domain: Check `$TARGET_DIR/scope.md` for cached scope. If none, ask user to provide program URL.
 
-3. Print status:
+3. Check the OOB channel: confirm a collaborator / interaction listener is
+   available NOW. Without one, blind SSRF / blind XXE / blind command
+   injection / blind XSS cannot be proven. Arrange it before hunting, not
+   mid-hunt.
+
+4. Print status:
 ```
 Target:    {target}
 Platform:  {H1/Bugcrowd/Intigriti/Immunefi/Unknown}
@@ -521,6 +559,17 @@ Load validation methodology from:
 - `C:\Users\pc\.config\opencode\vendor\conjure-3301-skills\evidence-templates/SKILL.md` — evidence formatting
 
 Read skills `triage-validation`, `kill_signals`, `exploitability_validation`. For each finding, apply:
+
+**Step -1 — adversarial self-review (Hunter → Skeptic → Referee), before any
+claim:** first argue FOR the finding as the hunter who made it; then attack it
+as a skeptic who wants it dead; then referee between the two roles. Only a
+finding that survives all three roles proceeds to the gate. This is separate
+from - and before - the independent validator below.
+
+**Severity anchoring (anti-over-rating):** anchor every severity to a public
+standard or concrete comparator ("same impact as the accepted report X on
+intel.md", "VRT class Y"), never to how impressive the mechanism felt. When in
+doubt about an upgrade, don't.
 
 **Step 0 — deterministic hash dedup (before anything else):** compute
 `finding_hash = sha256(target + title + description + evidence + impact +
