@@ -124,6 +124,28 @@ Full merged reference: `C:\Users\pc\OneDrive - BIM ADVANCED TECHNOLOGY SERVICES 
   against: `rm -rf`, `mkfs`, `dd`, `shutdown`, `reboot`, fork bomb
   `:(){:|:&};:`, `chmod -R 777`. Match = refuse and log it. No exceptions.
 
+## Research-Skill Mechanics (borrowed from Deep-Research-skills)
+
+- **Uncertain accounting** — every artifact you write (finding, hypothesis,
+  target row) carries an explicit `uncertain` list naming every field you
+  could not verify, with values marked `[uncertain]`. Verification is not
+  optional: unverified claims are DELIBERATELY LISTED, never hidden. The
+  final report SKIPS uncertain fields — it covers only what was verified.
+- **Artifact-presence resume** — an item is DONE iff its validated output
+  artifact exists on disk. Never trust memory or "I think I did that": check
+  the file. Resume = list missing artifacts, run only those.
+- **Validation before acceptance** — a written artifact (finding, ledger row,
+  target) counts only after it passes a deterministic completeness check:
+  schema fields present, required fields non-empty, enums valid. Task is not
+  complete until validation passes.
+- **Playbook-before-tool** — hard gate on every hunter: the class playbook /
+  skill MUST be loaded before the first request exercising that class. No
+  WebSearch/payload/hunting action on a class before its playbook is in
+  context. "I know this class" is not a substitute.
+- **Strict prompt template** — hunter briefs use a fixed template with only
+  variables replaced (target, class, evidence, test_plan), never ad-hoc prose.
+  Keep the one-shot example in the brief so drift is visible.
+
 ## opencode Execution Notes (replaces Claude Code mechanics)
 
 - Subagents are spawned via the **Task tool** (`explore` for code discovery,
@@ -472,6 +494,8 @@ You are a {VULN_CLASS} specialist bug bounty hunter.
 {Content from frontend-backend-parity for web targets}
 
 ## Rules
+- **Playbook before tool**: load the vuln-class skill for your class BEFORE
+  your first request exercising it. No exceptions.
 - ONLY test in-scope assets. Check EVERY URL against the scope list.
 - Document exact HTTP requests (method, URL, headers, body)
 - Prove impact — not just "parameter reflects" but "XSS fires, cookie stolen"
@@ -727,6 +751,11 @@ updated root-cause clusters. A run that leaves this empty did half the job.
 playbook didn't know — a bypass, a chain, a non-obvious trick — write it back
 into the relevant skill or KB so the next hunt starts smarter. A methodology
 change starts with a failing example first; never bend a rule silently.
+
+**Completeness of the commit**: every committed artifact carries its
+`uncertain` list; a finding with unresolved required fields is not accepted
+into `knowledge.md` — it goes to the open-leads list or is marked
+`SUSPICIOUS`, it does not silently disappear.
 
 **State checkpoint append:**
 ```
